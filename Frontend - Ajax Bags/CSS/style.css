@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Pontano Sans", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color: #888;
+  background: #fff;
+  text-rendering: optimizeLegibility;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+ul li {
+  margin: 0 1.75rem 0 0;
+}
+
+a {
+  color: #888;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+a:hover {
+  color: #333;
+}
+a.active {
+  color: #333;
+}
+
+h1, h2, h3, h4 {
+  color: #333;
+  font-weight: normal;
+  margin: 1.75rem 0 1rem 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.125rem;
+  margin: 0;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+section {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+nav {
+  display: block;
+}
+nav li {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.flex-nav ul {
+  position: absolute;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: none;
+  width: 100%;
+  left: 0;
+  padding: 1rem;
+  background: #fff;
+  text-align: center;
+}
+.flex-nav ul.active {
+  display: flex;
+}
+.flex-nav ul li {
+  margin: 0.5rem 0;
+}
+
+.toggle-nav {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin: 1rem 0;
+}
+.toggle-nav i {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0 0 0 0.5rem;
+}
+
+#highlight {
+  color: #333;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
