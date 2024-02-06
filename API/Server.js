@@ -1,15 +1,15 @@
 // Import required modules
 var express = require("express");
 var cors = require("cors");
-var db = require('./db-connections'); // Assuming this file handles database connections
+var db = require('../DB/db'); // Assuming this file handles database connections
 var app = express();
 
 // Middleware setup
 app.use(express.json()); // Parse incoming requests as JSON
-app.use(express.static("./public")); // Serve static files from the 'public' directory
+app.use(express.static('../Frontend')); // Serve static files from the 'Frontend' directory
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 
-app.route('/e-commerce/products/:id').get(function (req, res) {
+app.route('GET products').get(function (req, res) {
     var sql = "SELECT product.id AS id, " +
             "product.name AS name, " +
             "product.description AS description, " +
@@ -38,7 +38,7 @@ app.route('/e-commerce/products/:id').get(function (req, res) {
 });
 
 // Define route to get all products with category names
-app.route('/e-commerce/products').get(function (req, res) {
+app.route('GET product').get(function (req, res) {
     var sql = "SELECT product.id AS id, " +
             "product.name AS name, " +
             "product.description AS description, " +
@@ -59,10 +59,10 @@ app.route('/e-commerce/products').get(function (req, res) {
 });
 
 // Enable pre-flight request for POST request to prevent CORS policy error
-app.options('/e-commerce/post', cors());
+app.options('POST', cors());
 
 // Define route to handle POST requests to add a new product
-app.route('/e-commerce/post').post(function (req, res) {
+app.route('POST product').post(function (req, res) {
     var sql = "INSERT INTO `e-commerce`.`product` (`name`, `description`, `price`, `category_id`, `picture`) VALUES (?, ?, ?, ?, ?)";
     var parameters = [req.body.product_name, req.body.description, req.body.price, req.body.category_id, req.body.picture];
 
@@ -77,7 +77,7 @@ app.route('/e-commerce/post').post(function (req, res) {
 });
 
 // Define route to handle PUT requests to update a product by ID
-app.route('/e-commerce/update/:id').put(function (req, res) {
+app.route('UPDATE product').put(function (req, res) {
     var sql = "UPDATE `e-commerce`.`product` SET name = ?, description = ?, price = ?, category_id = ?, picture = ? WHERE id = ?";
     var parameters = [req.body.product_name, req.body.description, req.body.price, req.body.category_id, req.body.picture, req.params.id];
 
@@ -97,7 +97,7 @@ app.route('/e-commerce/update/:id').put(function (req, res) {
 });
 
 // Define route to handle DELETE requests to delete a product by ID
-app.route('/e-commerce/delete/:id').delete(function (req, res) {
+app.route('DELETE product').delete(function (req, res) {
     var sql = "DELETE FROM `e-commerce`.`product` WHERE id = ?";
     var parameters = [req.params.id];
 

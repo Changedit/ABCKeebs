@@ -36,9 +36,7 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`product` (
   `description` VARCHAR(200) NOT NULL,
   `price` DECIMAL(10,2) NOT NULL,
   `category_id` INT NOT NULL,
-  `image` VARCHAR(200) NULL,
-  `line` VARCHAR(45) NULL,
-  `variant` VARCHAR(45) NULL,
+  `picture` VARCHAR(200) NULL,
   PRIMARY KEY (`id`),
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `product_category_id`
