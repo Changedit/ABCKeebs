@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `ABCKeeb`.`product` (
   `price` DECIMAL(10,2) NOT NULL,
   `category_id` INT NOT NULL,
   `picture` VARCHAR(200) NULL,
+  `variant` VARCHAR(20) NULL ,
   PRIMARY KEY (`id`),
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `product_category_id`
