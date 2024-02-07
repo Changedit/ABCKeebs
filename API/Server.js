@@ -1,15 +1,20 @@
 // Import required modules
 var express = require("express");
+const app = express();
 var cors = require("cors");
-var db = require('../DB/db'); // Assuming this file handles database connections
-var app = express();
+
+// Import required modules
+const path = require('path');
+const frontendPath = path.join(__dirname, '../Frontend');
+const dbPath = path.join(__dirname, '../DB/db');
+const db = require(dbPath); // This file handles database connections
 
 // Middleware setup
 app.use(express.json()); // Parse incoming requests as JSON
-app.use(express.static('../Frontend')); // Serve static files from the 'Frontend' directory
+app.use(express.static(frontendPath)); // Serve static files from the 'Frontend' directory)
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 
-app.route('GET products').get(function (req, res) {
+app.route('GET product').get(function (req, res) {
     var sql = "SELECT product.id AS id, " +
             "product.name AS name, " +
             "product.description AS description, " +
@@ -38,7 +43,7 @@ app.route('GET products').get(function (req, res) {
 });
 
 // Define route to get all products with category names
-app.route('GET product').get(function (req, res) {
+app.route('GET products').get(function (req, res) {
     var sql = "SELECT product.id AS id, " +
             "product.name AS name, " +
             "product.description AS description, " +

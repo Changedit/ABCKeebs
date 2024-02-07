@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema e-commerce
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `e-commerce` DEFAULT CHARACTER SET utf8 ;
-USE `e-commerce` ;
+CREATE SCHEMA IF NOT EXISTS `ABCKeeb` DEFAULT CHARACTER SET utf8 ;
+USE `ABCKeeb` ;
 
 -- -----------------------------------------------------
 -- Table `e-commerce`.`category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `e-commerce`.`category` (
+CREATE TABLE IF NOT EXISTS `ABCKeeb`.`category` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `e-commerce`.`product`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `e-commerce`.`product` (
+CREATE TABLE IF NOT EXISTS `ABCKeeb`.`product` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
