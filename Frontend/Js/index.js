@@ -1,3 +1,6 @@
+
+var products = getProducts();
+
 var colorDictionary = {
   azur: "background: #2ecbbe",
   iced: "background: #c9cdd0",
@@ -11,7 +14,7 @@ var colorDictionary = {
 };
 
 // Function to retrieve all products and update the HTML content for the product list
-function displayProductLines() {
+function getProducts() {
   var request = new XMLHttpRequest();
 
   request.open("GET", "http://localhost:8080/GETproducts", true);
@@ -19,34 +22,22 @@ function displayProductLines() {
   request.onload = function () {
     var obj = JSON.parse(request.responseText);
     console.log(obj);
-
-    // Get div elements by id
-    var productLine = document.getElementById("product-line");
-
-    for (var i = 0; i < obj.length; i++) {
-      if (obj[i].category_name === "Keyboard") {
-        // Update the content of div elements
-        productLine.innerHTML +=
-          '<li class="card-med"' +
-          colorDictionary[obj[i].variant] +
-          ">" +
-          '<div class="card-image">' +
-          '<img src="' +
-          obj[i].picture +
-          '"/>' +
-          "</div>";
-        '<a href="#">' +
-          "<span>" +
-          obj[i].name +
-          "</span>" +
-          '<span>More Info<span class="material-symbols-outlined">arrow_forward</span></span>' +
-          "</a>" +
-          "</li>";
-      }
-    }
+    return obj;
   };
 
   request.send();
+
 }
 
-
+function randomKeyboard() {
+  var keyboards = [];
+  //loop through each product
+  for (var i = 0; i < products.length; i++) {
+    var product = products[i];
+    if (product.category_name === "Keyboards") {
+      keyboards.push(product);
+    }
+  }
+  //loop through each keyboard
+  
+}

@@ -7,7 +7,7 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Material+Symbols+Outlined"
   />
-  <script src="Js/index.js"></script>
+  
 </head>
 
 <header>
@@ -33,15 +33,13 @@
       ABC <br />
       Keeb Store
     </div>
-    <ul class="navigation-menu" onload="getProductData()">
+    <ul class="navigation-menu" onload="displayProductLines()">
       <li>
         <a href="#">Product Lines</a>
-        <ul class="subnav" id="product-line" >
-          <li class="card-med" >
-            <div class="card-image" style = "background: #a53fb8">
-              <img
-                src="resources/keyboards/KARA/haze.png"
-              />
+        <ul class="subnav" id="product-line">
+          <li class="card-med">
+            <div class="card-image" style="background: #a53fb8">
+              <img src="resources/keyboards/KARA/haze.png" />
             </div>
             <a href="#">
               <span>KARA</span>
@@ -54,10 +52,8 @@
             </a>
           </li>
           <li class="card-med">
-            <div class="card-image" style = "background: #a59790">
-              <img
-                src="resources/keyboards/THERMAL/rose.png"
-              />
+            <div class="card-image" style="background: #a59790">
+              <img src="resources/keyboards/THERMAL/rose.png" />
             </div>
             <a href="#">
               <span>THERMAL</span>
@@ -81,156 +77,162 @@
     </div>
   </nav>
 </header>
-<section class="hero">
-  <h1>KARA - Make It Your Own</h1>
-  <div class="btn-group">
-    <button class="btn-filled-dark">
-      <span class="material-symbols-outlined"> shopping_cart </span>Shop All
-      Products
-    </button>
-    <button class="btn-outline-dark btn-hover-color">
-      <span class="material-symbols-outlined"> calendar_month </span> Book a
-      Visit
-    </button>
-  </div>
-</section>
-<section>
-  <h2>Shop by Category</h2>
-
-  <ul class="shop-pets">
-    <li class="card-large card-light" id="sup-dog">
-      <div class="card-image">
-        <img
-          src="resources/keyboards/KARA/soya.png"
-        />
-      </div>
-      <ul>
-        Keyboards
-        <li><a href="#">KARA</a></li>
-        <li><a href="#">Thermal</a></li>
-        <li><a href="#">Thermal+</a></li>
-
-        <button class="btn-outline-light">
-          Shop All<span class="material-symbols-outlined"> arrow_forward </span>
-        </button>
-      </ul>
-    </li>
-
-    <li class="card-large card-dark" id="sup-cat">
-      <div class="card-image">
-        <img
-          src="resources/switches/DUCK/image.png"
-        />
-      </div>
-      <ul>
-        Switches
-        <li><a href="#">Linears</a></li>
-        <li><a href="#">Tactiles</a></li>
-        <li><a href="#">No Clickies sorry</a></li>
-        <button class="btn-outline-dark">
-          Shop All<span class="material-symbols-outlined"> arrow_forward </span>
-        </button>
-      </ul>
-    </li>
-
-    <li class="card-large card-dark" id="sup-bird">
-      <div class="card-image">
-        <img
-          src="https://ouch-cdn2.icons8.com/DF-XRInvbvWS9fQSpWc_SegC3meXZK8BmE-PjrdrF3Q/rs:fit:368:396/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzI3/LzQyYWIyNzliLWJj/ZDgtNGEyMC04MGRi/LTk3MzU4YWFmNTVk/OS5wbmc.png"
-        />
-      </div>
-      <ul>
-        Birds
-        <li><a href="#">Food &amp; Treats</a></li>
-        <li><a href="#">Toys</a></li>
-        <li><a href="#">Furniture</a></li>
-        <button class="btn-outline-dark">
-          Shop All<span class="material-symbols-outlined"> arrow_forward </span>
-        </button>
-      </ul>
-    </li>
-    <li class="card-large card-light" id="sup-fish">
-      <div class="card-image">
-        <img
-          src="https://ouch-cdn2.icons8.com/41Pv7w9rcbn7II_gB2vwvVCQRYE5mvpca1ZbsvMujR0/rs:fit:368:368/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNjE5/LzRlZjE1YTgyLTI3/NjYtNDlkNC1hMGE3/LWY4ZjRmNzhjM2M5/NS5wbmc.png"
-        />
-      </div>
-      <ul>
-        Fish
-        <li><a href="#">Food</a></li>
-        <li><a href="#">Aquariums</a></li>
-        <li><a href="#">Rocks &amp; Decorations</a></li>
-        <button class="btn-outline-light">
-          Shop All<span class="material-symbols-outlined"> arrow_forward </span>
-        </button>
-      </ul>
-    </li>
-  </ul>
-</section>
-
-<section>
-  <h2>Our Services</h2>
-
-  <ul class="services">
-    <li class="card-large card-dark card-wide" id="serv-groom">
-      <div class="card-image">
-        <img
-          src="https://ouch-cdn2.icons8.com/T11rfGmMKgcStJyAFKNgtOfE79cadabx0DVMnvzA9Pk/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzFlYWU4MWY3LWQ1/ZjYtNDM2Ny1hZjM5/LWVmNTFmMGM5Njk4/MS5wbmc.png"
-        />
-      </div>
-      <ul>
-        Dog Grooming<span class="subtitle"
-          >Tail-wagging transformations are our specialty.</span
-        >
-        <li><a href="#">Coat Care</a><span>$80</span></li>
-        <li><a href="#">Nail Care</a><span>$16</span></li>
-        <li><a href="#">Doggie Deluxe Spa Day</a><span>$160</span></li>
-        <button class="btn-filled-dark">
-          <span class="material-symbols-outlined"> calendar_month </span>Book
-          Now
-        </button>
-      </ul>
-    </li>
-    <li class="card-large card-dark card-wide" id="serv-board">
-      <div class="card-image">
-        <img
-          src="https://ouch-cdn2.icons8.com/F5Ea1suZtMYimKDkJr0CJLO_1bju6-bTyT1EuDKEg8s/rs:fit:368:254/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjcx/LzVjMzE4NWM0LWZh/NTMtNGQ1OS05ZTM2/LTZjYzBhNGU3ODg0/NC5wbmc.png"
-        />
-      </div>
-      <ul>
-        Dog Boarding<span class="subtitle"
-          >Where fun and care never take a day off.</span
-        >
-        <li><a href="#">Doggie Daycare</a><span>$80</span></li>
-        <li><a href="#">Short Term Boarding</a><span>$80</span></li>
-        <button class="btn-filled-dark">
-          <span class="material-symbols-outlined"> calendar_month </span>Book
-          Now
-        </button>
-      </ul>
-    </li>
-  </ul>
-</section>
-
-<section id="locate">
-  <div>
-    <h2>Location &amp; Hours</h2>
-    <p>
-      Our knowledgeable and friendly staff is always ready to assist you in
-      making the best choices for your furry, feathered, or finned friends.
-    </p>
+<body>
+  <section class="hero">
+    <h1>KARA - Make It Your Own</h1>
     <div class="btn-group">
       <button class="btn-filled-dark">
-        <span class="material-symbols-outlined"> pin_drop </span>Find a Store
+        <span class="material-symbols-outlined"> shopping_cart </span>Shop All
+        Products
       </button>
       <button class="btn-outline-dark btn-hover-color">
-        <span class="material-symbols-outlined"> contact_support </span> Contact
-        Us
+        <span class="material-symbols-outlined"> calendar_month </span> Book a
+        Visit
       </button>
     </div>
-  </div>
-</section>
+  </section>
+  <section>
+    <h2>Shop by Category</h2>
 
+    <ul class="shop-pets">
+      <li class="card-large card-light" id="sup-dog">
+        <div class="card-image">
+          <img src="resources/keyboards/KARA/soya.png" />
+        </div>
+        <ul>
+          Keyboards
+          <li><a href="#">KARA</a></li>
+          <li><a href="#">Thermal</a></li>
+          <li><a href="#">Thermal+</a></li>
+
+          <button class="btn-outline-light">
+            Shop All<span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+          </button>
+        </ul>
+      </li>
+
+      <li class="card-large card-dark" id="sup-cat">
+        <div class="card-image">
+          <img src="resources/switches/DUCK/image.png" />
+        </div>
+        <ul>
+          Switches
+          <li><a href="#">Linears</a></li>
+          <li><a href="#">Tactiles</a></li>
+          <li><a href="#">No Clickies sorry</a></li>
+          <button class="btn-outline-dark">
+            Shop All<span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+          </button>
+        </ul>
+      </li>
+
+      <li class="card-large card-dark" id="sup-bird">
+        <div class="card-image">
+          <img
+            src=""
+          />
+        </div>
+        <ul>
+          Birds
+          <li><a href="#">Food &amp; Treats</a></li>
+          <li><a href="#">Toys</a></li>
+          <li><a href="#">Furniture</a></li>
+          <button class="btn-outline-dark">
+            Shop All<span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+          </button>
+        </ul>
+      </li>
+      <li class="card-large card-light" id="sup-fish">
+        <div class="card-image">
+          <img
+            src=""
+          />
+        </div>
+        <ul>
+          Fish
+          <li><a href="#">Food</a></li>
+          <li><a href="#">Aquariums</a></li>
+          <li><a href="#">Rocks &amp; Decorations</a></li>
+          <button class="btn-outline-light">
+            Shop All<span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+          </button>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Our Services</h2>
+
+    <ul class="services">
+      <li class="card-large card-dark card-wide" id="serv-groom">
+        <div class="card-image">
+          <img
+            src="https://ouch-cdn2.icons8.com/T11rfGmMKgcStJyAFKNgtOfE79cadabx0DVMnvzA9Pk/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzFlYWU4MWY3LWQ1/ZjYtNDM2Ny1hZjM5/LWVmNTFmMGM5Njk4/MS5wbmc.png"
+          />
+        </div>
+        <ul>
+          Dog Grooming<span class="subtitle"
+            >Tail-wagging transformations are our specialty.</span
+          >
+          <li><a href="#">Coat Care</a><span>$80</span></li>
+          <li><a href="#">Nail Care</a><span>$16</span></li>
+          <li><a href="#">Doggie Deluxe Spa Day</a><span>$160</span></li>
+          <button class="btn-filled-dark">
+            <span class="material-symbols-outlined"> calendar_month </span>Book
+            Now
+          </button>
+        </ul>
+      </li>
+      <li class="card-large card-dark card-wide" id="serv-board">
+        <div class="card-image">
+          <img
+            src="https://ouch-cdn2.icons8.com/F5Ea1suZtMYimKDkJr0CJLO_1bju6-bTyT1EuDKEg8s/rs:fit:368:254/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjcx/LzVjMzE4NWM0LWZh/NTMtNGQ1OS05ZTM2/LTZjYzBhNGU3ODg0/NC5wbmc.png"
+          />
+        </div>
+        <ul>
+          Dog Boarding<span class="subtitle"
+            >Where fun and care never take a day off.</span
+          >
+          <li><a href="#">Doggie Daycare</a><span>$80</span></li>
+          <li><a href="#">Short Term Boarding</a><span>$80</span></li>
+          <button class="btn-filled-dark">
+            <span class="material-symbols-outlined"> calendar_month </span>Book
+            Now
+          </button>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="locate">
+    <div>
+      <h2>Location &amp; Hours</h2>
+      <p>
+        Our knowledgeable and friendly staff is always ready to assist you in
+        making the best choices for your furry, feathered, or finned friends.
+      </p>
+      <div class="btn-group">
+        <button class="btn-filled-dark">
+          <span class="material-symbols-outlined"> pin_drop </span>Find a Store
+        </button>
+        <button class="btn-outline-dark btn-hover-color">
+          <span class="material-symbols-outlined"> contact_support </span>
+          Contact Us
+        </button>
+      </div>
+    </div>
+  </section>
+  <script src="Js/index.js"></script>
+</body>
 <footer>
   <ul>
     Products
@@ -262,3 +264,8 @@
     <li><a href="#">About Us</a></li>
   </ul>
 </footer>
+<script>
+  window.onload = function() {
+      displayProductLines(); 
+  };
+</script>
