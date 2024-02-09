@@ -176,10 +176,10 @@ app.route("/DELETEproduct/:id").delete(async (req, res) => {
 
 app.route("/GETcategory/:id").get(async (req, res) => {
   try {
-      const categoryId = req.params.id; // Capture dynamic ID,  now accessible!
+      const categoryId = req.params.id;
 
       // Assuming 'executeQuery' is your database function:
-      const sql = "SELECT * FROM `ABCKeeb`.`category` WHERE id = ?"; 
+      const sql = "SELECT * FROM `ABCKeeb`.`category` WHERE id = " + categoryId; 
       const parameters = [categoryId];
       const result = await executeQuery(sql, parameters); 
 

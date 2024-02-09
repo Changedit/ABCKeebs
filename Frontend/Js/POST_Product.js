@@ -1,3 +1,4 @@
+
 // Function to display or hide the input
 function toggleImagePathInput(showImageInput, imagePath = "") {
   // Added imagePath
@@ -25,7 +26,26 @@ relativeRadio.addEventListener("change", () => {
 absoluteRadio.addEventListener("change", () => {
   toggleImagePathInput(true);
 });
+// Function to fetch category name
+function fetchCategoryName(categoryId) {
+  return new Promise((resolve, reject) => {
+    var request = new XMLHttpRequest();
+    request.open("GET", "http://localhost:8080/GETCategory/" + categoryId, true);
+    request.onload = function () {
+      if (request.status === 200) {
+        const categoryData = JSON.parse(request.responseText);
+        console.log("Category Data:", categoryData.name);
+        resolve(categoryData.name);
+      } else {
+        console.error("Error fetching category: ", request.status);
+        reject("Error fetching category");
+      }
+    };
+    request.send();
+  });
+}
 
+// Inside the submit event listener function
 addProductForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -35,33 +55,18 @@ addProductForm.addEventListener("submit", async (event) => {
   const productPrice = document.getElementById("price").value;
   const productDescription = document.getElementById("description").value;
   const productCategory = document.getElementById("category").value;
-  async function fetchCategoryName(categoryId) {
-    var request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:8080/GETCategory" + categoryId, true);
-    request.onload = function () {
-      if (request.status === 200) {
-        const categoryData = JSON.parse(request.responseText);
-        console.log("Category Data:", categoryData[0].name);
-        return categoryData[0].name; // Assuming your result includes 'name' field
-      } else {
-        console.error("Error fetching category: ", request.status);
-        return null; // Or a placeholder category name in case of error
-      }
-    };
-    request.send();
-  }
-
   // Get directory type
   const directoryType = document.querySelector(
     'input[name="directory-type"]:checked'
   ).value;
 
-  // Get image path and modify if 'relative' is selected
-  let picturePath = document.getElementById("picture").value;
-  if (directoryType === "relative") {
+  try {
+    // Fetch category name
     const categoryName = await fetchCategoryName(productCategory);
 
-    if (categoryName) {
+    // Construct picturePath
+    let picturePath;
+    if (directoryType === "relative") {
       picturePath =
         "../resources/" +
         categoryName +
@@ -69,44 +74,42 @@ addProductForm.addEventListener("submit", async (event) => {
         productName +
         "/" +
         productVariant +
-        ".png"; // Use fetched name
+        ".png";
       console.log("Calculated Path:", picturePath);
-      toggleImagePathInput(false, picturePath);
+      toggleImagePathInput(false, picturePath); // Show the calculated path
     } else {
-      // Handle fallback path construction  if the category  was not retrieved
+      picturePath = document.getElementById("picture").value;
     }
-  }
 
-  // Basic validation (Enhance as needed)
-  if (!productName || !productPrice || !productCategory) {
-    // Modify as per your exact requirements
-    alert("Please fill all required fields.");
-    return;
-  }
-  // Create the product object
-  const product = {
-    product_name: productName,
-    description: productDescription,
-    price: productPrice,
-    category_id: productCategory,
-    variant: productVariant,
-    picture: picturePath,
-  };
+    // Basic validation (Enhance as needed)
+    if (!productName || !productPrice || !productCategory || !picturePath) {
+      alert("Please fill all required fields.");
+      return;
+    }
 
-  // Make the POST request using fetch
-  try {
+    // Create the product object
+    const product = {
+      product_name: productName,
+      description: productDescription,
+      price: productPrice,
+      category_id: productCategory,
+      variant: productVariant,
+      picture: picturePath,
+    };
+
+    // Make the POST request using fetch
     const response = await fetch("/POSTproduct", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Indicate JSON data
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(product), // Convert object to JSON string
+      body: JSON.stringify(product),
     });
 
     if (response.ok) {
       const result = await response.json();
       alert("Product added successfully!");
-      addProductForm.reset(); // Reset the form fields after submission
+      addProductForm.reset();
     } else {
       console.error(
         "Error adding product:",

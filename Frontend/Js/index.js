@@ -11,10 +11,10 @@ var colorDictionary = {
 };
 
 // Function to retrieve all products and update the HTML content for the product list
-function getProductData() {
+function displayProductLines() {
   var request = new XMLHttpRequest();
 
-  request.open("GET", "http://localhost:8080/GET products", true);
+  request.open("GET", "http://localhost:8080/GETproducts", true);
 
   request.onload = function () {
     var obj = JSON.parse(request.responseText);
