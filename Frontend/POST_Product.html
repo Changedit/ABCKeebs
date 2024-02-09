@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/POST_Product.css" />
+    <title>Add New Product</title>
+  </head>
+  <body>
+    <h1>Add Product</h1>
+    <form id="addProductForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required />
+
+      <label for="variant">Variant</label>
+      <input
+        type="text"
+        id="variant"
+        name="variant"
+        autocomplete="variant"
+        required
+      />
+
+      <label for="price">Price</label>
+      <input
+        type="text"
+        id="price"
+        name="price"
+        autocomplete="price"
+        required
+      />
+
+      <label for="description">Description</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        autocomplete="description"
+        required
+      />
+
+      <label for="picture">Picture</label>
+      <div class="directory-options">
+        <input type="radio" id="relative-directory" name="directory-type" value="relative" />
+        <label for="relative-directory">Automatic</label>
+    
+        <input type="radio" id="absolute-directory" name="directory-type" value="absolute" /> 
+        <label for="absolute-directory">Manual</label>
+    </div>
+    
+    <input type="text" id="picture" name="picture" autocomplete="picture" class="image-path-input" /> 
+    
+    <span id="display-path"></span> 
+    
+
+      <label for="category">Category ID</label>
+      <input
+        type="text"
+        id="category"
+        name="category"
+        autocomplete="category"
+        required
+      />
+
+      <input type="submit" value="Add Book" />
+    </form>
+    <script src="Js/POST_Product.js"></script>
+  </body>
+</html>

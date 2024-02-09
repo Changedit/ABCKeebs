@@ -1,7 +1,7 @@
 var colorDictionary = {
   azur: "background: #2ecbbe",
   iced: "background: #c9cdd0",
-  haze: "background: #707173",
+  haze: "background: #a53fb8",
   soya: "background: #aea797",
   moon: "background: #818a8b",
   noct: "background: #6d6e70",
