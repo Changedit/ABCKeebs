@@ -1,7 +1,46 @@
+// Function to retrieve all products and update the HTML content for the product list
+function getProducts() {
+  var request = new XMLHttpRequest();
 
-var products = getProducts();
+  request.open("GET", "http://localhost:8080/GETproducts", true);
 
-var colorDictionary = {
+  request.onload = function () {
+
+    var products = JSON.parse(request.responseText);
+    var keyboards = [];
+    var keycaps = [];
+    var switches = [];
+    var accessories = [];
+    for (var i = 0; i < products.length; i++) {
+
+      var product = products[i];
+      if (product.category_name === "Keyboards") {
+        keyboards.push(product);
+      }
+      else if (product.category_name === "Keycaps") {
+        keycaps.push(product);
+      }
+      else if (product.category_name === "Switches") {
+        switches.push(product);
+      }
+      else {
+        accessories.push(product);
+      }
+
+    }
+
+    console.log(keyboards);
+    console.log(keycaps);
+    console.log(switches);
+    console.log(accessories);
+
+    
+  };
+
+  request.send();
+};
+
+var variantDictionary = {
   azur: "background: #2ecbbe",
   iced: "background: #c9cdd0",
   haze: "background: #a53fb8",
@@ -13,31 +52,6 @@ var colorDictionary = {
   null: "background: #ffffff",
 };
 
-// Function to retrieve all products and update the HTML content for the product list
-function getProducts() {
-  var request = new XMLHttpRequest();
-
-  request.open("GET", "http://localhost:8080/GETproducts", true);
-
-  request.onload = function () {
-    var obj = JSON.parse(request.responseText);
-    console.log(obj);
-    return obj;
-  };
-
-  request.send();
-
-}
-
-function randomKeyboard() {
-  var keyboards = [];
-  //loop through each product
-  for (var i = 0; i < products.length; i++) {
-    var product = products[i];
-    if (product.category_name === "Keyboards") {
-      keyboards.push(product);
-    }
-  }
-  //loop through each keyboard
-  
-}
+window.onload = function () {
+  getProducts();
+};
