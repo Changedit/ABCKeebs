@@ -5,28 +5,22 @@ function getProducts() {
   request.open("GET", "http://localhost:8080/GETproducts", true);
 
   request.onload = function () {
-
     var products = JSON.parse(request.responseText);
     var keyboards = [];
     var keycaps = [];
     var switches = [];
     var accessories = [];
     for (var i = 0; i < products.length; i++) {
-
       var product = products[i];
       if (product.category_name === "Keyboards") {
         keyboards.push(product);
-      }
-      else if (product.category_name === "Keycaps") {
+      } else if (product.category_name === "Keycaps") {
         keycaps.push(product);
-      }
-      else if (product.category_name === "Switches") {
+      } else if (product.category_name === "Switches") {
         switches.push(product);
-      }
-      else {
+      } else {
         accessories.push(product);
       }
-
     }
 
     console.log(keyboards);
@@ -34,11 +28,17 @@ function getProducts() {
     console.log(switches);
     console.log(accessories);
 
-    
+    for (var i = 0; i < keyboards.length; i++) {
+      var keyboard = keyboards[i];
+      
+        }
+      
+
+      
   };
 
   request.send();
-};
+}
 
 var variantDictionary = {
   azur: "background: #2ecbbe",
