@@ -395,7 +395,7 @@ section.hero h1 {
 }
 
 #serv-groom > .card-image {
-	background: linear-gradient(45deg, #45828c 0%, #a7d4d8 100%);
+	background:  #cfe1e5
 }
 
 #serv-board > .card-image {
@@ -594,7 +594,7 @@ footer ul li {
 		flex-direction: column;
 	}
 
-	.shop-pets,
+	.shop-category,
 	.services {
 		display: flex;
 		flex-direction: column;
