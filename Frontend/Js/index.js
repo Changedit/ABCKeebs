@@ -10,6 +10,8 @@ function getProducts() {
     var keycaps = [];
     var switches = [];
     var accessories = [];
+    var randomKeyboards = {};
+
     for (var i = 0; i < products.length; i++) {
       var product = products[i];
       if (product.category_name === "Keyboards") {
@@ -28,20 +30,50 @@ function getProducts() {
     console.log(switches);
     console.log(accessories);
 
-    var keyboardDictionary = {};
-    for (var i = 0; i < keyboards.length; i++) {
-      var keyboard = keyboards[i];
-      if (!keyboardDictionary[keyboard.name]) {
-        keyboardDictionary[keyboard.name] = [];
-      }
-      keyboardDictionary[keyboard.name].push(keyboard);
+    let nameVariantsMap = {};
+    // Build a map of product names to their variants
+    keyboards.forEach(product => {
+        if (!nameVariantsMap[product.name]) {
+            nameVariantsMap[product.name] = [];
         }
-      console.log(keyboardDictionary);
+        nameVariantsMap[product.name].push(product);
+    });
+    // Select one variant randomly from each product name
+    for (let productName in nameVariantsMap) {
+        if (nameVariantsMap.hasOwnProperty(productName)) {
+            let variants = nameVariantsMap[productName];
+            let randomIndex = Math.floor(Math.random() * variants.length);
+            let randomVariant = variants[randomIndex];
+            randomKeyboards[productName] = randomVariant;
+        }
+    }
+    
+    const productLine = document.getElementById("product-list");
+    let html = "";
+    for (const productName in products) {
+      if (product.hasOwnproperty(productName)) {
+        html += generateProductHTML(products[productName]);
+      }
+    }
+    productList.innerHTML = html;
 
-      
   };
-
   request.send();
+}
+
+// Function to generate HTML for each product
+function generateProductHTML(product) {
+  return `
+    <li class="card-med">
+      <div class="card-image" style="background: ${variantDictionary[product.variant.toLowerCase()] || '#fafafa'}">
+        <img src="${product.picture}" />
+      </div>
+      <a href="#">
+        <span>${product.name}</span>
+        <span>More Info <span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+    </li>
+  `;
 }
 
 var variantDictionary = {
