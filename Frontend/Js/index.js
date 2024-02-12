@@ -28,11 +28,15 @@ function getProducts() {
     console.log(switches);
     console.log(accessories);
 
+    var keyboardDictionary = {};
     for (var i = 0; i < keyboards.length; i++) {
       var keyboard = keyboards[i];
-      
+      if (!keyboardDictionary[keyboard.name]) {
+        keyboardDictionary[keyboard.name] = [];
+      }
+      keyboardDictionary[keyboard.name].push(keyboard);
         }
-      
+      console.log(keyboardDictionary);
 
       
   };
@@ -49,7 +53,7 @@ var variantDictionary = {
   noct: "background: #6d6e70",
   kuro: "background: #b7b9b8",
   rose: "background: #a59790",
-  null: "background: #ffffff",
+  null: "background: #fafafa",
 };
 
 window.onload = function () {
