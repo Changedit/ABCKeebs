@@ -83,6 +83,31 @@ app.route("/GETproduct/:id").get(async (req, res) => {
   }
 });
 
+app.route("/GETproductline/:name").get(async (req, res) => {
+  try {
+      const sql = "SELECT product.name, " +
+                  "product.description AS description, " +
+                  "product.price AS price, " +
+                  "category.id AS category_id, " + 
+                  "category.name AS category_name, " +
+                  "product.picture AS picture, " +
+                  "product.variant AS variant " +
+                  "FROM `ABCKeeb`.`product` " +
+                  "JOIN `ABCKeeb`.`category` ON product.category_id = category.id " +
+                  "WHERE product.name = ?";
+      const parameters = [req.params.name]; 
+      const result = await executeQuery(sql, parameters);
+
+      if (result.length === 0) {
+          res.status(404).json({ error: "Product line not found" }); // Refined Error
+      } else {
+          res.json(result);
+      }
+  } catch (error) {
+      handleError(error, req, res);
+  }
+});
+
 app.route("/GETproducts").get(async (req, res) => {
     try {
       const sql =
