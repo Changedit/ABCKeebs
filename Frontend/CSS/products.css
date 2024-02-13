@@ -1,21 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-*
-{
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+.title {
+    text-align: center;
+    padding: 30px;
 }
 
-
-body
-{
-    font-family: 'Roboto', sans-serif;
-}
-a
-{
-    text-decoration: none;
-}
 .product-card {
     width: 380px;
     position: relative;
@@ -78,6 +66,9 @@ a
 }
 
 .product-details p {
+    height: 44px;
+    overflow-wrap: break-word;
+    overflow: hidden;
     font-size: 15px;
     line-height: 22px;
     margin-bottom: 18px;
@@ -109,11 +100,17 @@ a
     margin-right: 5px;
 }
 
-ul {
+#product-list { 
     display: grid;
-    padding: 0;
-    list-style: none;
-    margin: 0;
-
+    grid-template-columns: repeat(4, 25%); /* 3 Columns */
+    list-style-type: none;
+    margin: 0 auto;
+    justify-content:space-evenly;
 }
 
+#product-list .product-card { 
+    display: block;
+    height: 530px; /* Adjust as needed */
+    width: 90%; /* Adjust as needed */
+    margin: 20px auto;
+}

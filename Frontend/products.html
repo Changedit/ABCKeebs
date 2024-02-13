@@ -47,48 +47,22 @@
       <span class="material-symbols-outlined"> shopping_cart </span>
     </div>
   </nav>
+  <script src="js/DisplayProductLines.js"></script>
 </header>
 
 <body>
+  <h2 class="title">All Products</h2>
   <ul class="product-list" id="product-list">
-
-    <li>
-      <div class="product-card">
-        <div class="badge">Hot</div>
-        <div class="product-tumb">
-          <img src="resources/keyboards/KARA/iced.png" alt="" />
-        </div>
-        <div class="product-details">
-          <span class="product-category">Women,bag</span>
-          <h4><a href="">Women leather bag</a></h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero,
-            possimus nostrum!
-          </p>
-          <div class="product-bottom-details">
-            <div class="product-price">$230.99</div>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li>
-        <div class="product-card">
-          <div class="badge">Hot</div>
-          <div class="product-tumb">
-            <img src="resources/keyboards/KARA/iced.png" alt="" />
-          </div>
-          <div class="product-details">
-            <span class="product-category">Keyboards</span>
-            <h4><a href="">KARA</a></h4>
-            <p>
-              Latest greatest product line... to ever exist
-            </p>
-            <div class="product-bottom-details">
-              <div class="product-price">$230.99</div>
-            </div>
-          </div>
-        </div>
-      </li>
+    
   </ul>
+  
+  <script>
+    window.onload = function () {
+        displayProductLines();
+        listProducts();
+    }
+</script>
+<script src="js/products.js"></script>
 </body>
+
+
