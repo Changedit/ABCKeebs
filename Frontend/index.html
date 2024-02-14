@@ -12,7 +12,7 @@
 <header>
   <div class="banner">Get free delivery on orders over $80</div>
   <nav>
-    <div id="logo">
+    <div id="logo" onclick="returnMain()">
       <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
       <svg
         width="50px"
@@ -54,13 +54,8 @@
   <section class="hero">
     <h1>KARA - Make It Your Own</h1>
     <div class="btn-group">
-      <button class="btn-filled-dark">
-        <span class="material-symbols-outlined"> shopping_cart </span>Shop All
-        Products
-      </button>
-      <button class="btn-outline-dark btn-hover-color">
-        <span class="material-symbols-outlined"> calendar_month </span> Book a
-        Visit
+      <button class="btn-filled-dark" onclick="browseProducts('All')">
+        <span class="material-symbols-outlined"> shopping_cart </span >Shop All Products
       </button>
     </div>
   </section>
@@ -68,7 +63,7 @@
     <h2>Shop by Category</h2>
 
     <ul class="shop-pets" id="category-display">
-      <li class="card-large card-light" id="sup-dog">
+      <li class="card-large card-light" id="sup-keyboards">
         <div class="card-image">
           <img src="resources/keyboards/KARA/soya.png" />
         </div>
@@ -78,7 +73,7 @@
           <li><a href="#">Thermal</a></li>
           <li><a href="#">Thermal+</a></li>
 
-          <button class="btn-outline-light">
+          <button class="btn-outline-light" onclick="browseProducts('Keyboards')">
             Shop All<span class="material-symbols-outlined">
               arrow_forward
             </span>
@@ -86,7 +81,7 @@
         </ul>
       </li>
 
-      <li class="card-large card-dark" id="sup-cat">
+      <li class="card-large card-dark" id="sup-switches">
         <div class="card-image">
           <img src="resources/switches/FARMLAND/DUCK.png" />
         </div>
@@ -95,7 +90,7 @@
           <li><a href="#">Linears</a></li>
           <li><a href="#">Tactiles</a></li>
           <li><a href="#">No Clickies sorry</a></li>
-          <button class="btn-outline-dark">
+          <button class="btn-outline-dark" onclick="browseProducts('Switches')">
             Shop All<span class="material-symbols-outlined">
               arrow_forward
             </span>
@@ -103,7 +98,7 @@
         </ul>
       </li>
 
-      <li class="card-large card-dark" id="sup-bird">
+      <li class="card-large card-dark" id="sup-keycaps">
         <div class="card-image">
           <img
             src="resources/Keycaps/SEQ 1/KURO.png"
@@ -114,14 +109,14 @@
           <li><a href="#">Heavy Industry</a></li>
           <li><a href="#">SEQ 1</a></li>
           <li><a href="#">SEQ 2</a></li>
-          <button class="btn-outline-dark">
+          <button class="btn-outline-dark" onclick="browseProducts('Keycaps')">
             Shop All<span class="material-symbols-outlined">
               arrow_forward
             </span>
           </button>
         </ul>
       </li>
-      <li class="card-large card-light" id="sup-fish">
+      <li class="card-large card-light" id="sup-accessories">
         <div class="card-image">
           <img
             src="resources/Accessories/Artisan/PAGODA.png"
@@ -132,7 +127,7 @@
           <li><a href="#">M6-C Carrying Case</a></li>
           <li><a href="#">Artisan Keycaps</a></li>
           <li><a href="#">More to come</a></li>
-          <button class="btn-outline-light">
+          <button class="btn-outline-light" onclick="browseProducts('Accessories')">
             Shop All<span class="material-symbols-outlined">
               arrow_forward
             </span>
@@ -146,7 +141,7 @@
     <h2>Our Services</h2>
 
     <ul class="services">
-      <li class="card-large card-dark card-wide" id="serv-groom">
+      <li class="card-large card-dark card-wide" id="serv-assembly">
         <div class="card-image">
           <img
             src="resources/THERMAL_Explosive.png"
@@ -164,7 +159,7 @@
           </button>
         </ul>
       </li>
-      <li class="card-large card-dark card-wide" id="serv-board">
+      <li class="card-large card-dark card-wide" id="serv-lubing">
         <div class="card-image">
           <img
             src="resources/FROG_Explosive.png"
@@ -203,7 +198,8 @@
       </div>
     </div>
   </section>
-  <script src="Js/DisplayProductLines.js"></script>
+  <script src="Js/header.js"></script>
+  <script src="Js/index.js"></script>
   <script>
     window.onload = function () {
       displayProductLines();
@@ -241,6 +237,3 @@
     <li><a href="#">About Us</a></li>
   </ul>
 </footer>
-<script>
-
-</script>

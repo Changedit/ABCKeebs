@@ -81,7 +81,7 @@ function displayProductLines() {
         keyboard.picture +
         '" />' +
         "</div>" +
-        '<a href="#">' +
+        '<a href="product.html?productName=' + keyboard.name + '">' +
         "<span>" +
         keyboard.name +
         "</span>" +
@@ -90,4 +90,8 @@ function displayProductLines() {
   };
 
   request.send();
+}
+
+function returnMain() {
+  location.href = "/index.html";
 }

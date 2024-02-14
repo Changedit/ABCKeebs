@@ -12,7 +12,7 @@
 <header>
   <div class="banner">Get free delivery on orders over $80</div>
   <nav>
-    <div id="logo">
+    <div id="logo" onclick="returnMain()">
       <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
       <svg
         width="50px"
@@ -47,11 +47,11 @@
       <span class="material-symbols-outlined"> shopping_cart </span>
     </div>
   </nav>
-  <script src="js/DisplayProductLines.js"></script>
+  <script src="js/header.js"></script>
 </header>
 
 <body>
-  <h2 class="title">All Products</h2>
+  <h2 class="title" id="title"></h2>
   <ul class="product-list" id="product-list">
     
   </ul>

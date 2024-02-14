@@ -1,6 +1,6 @@
 :root {
-    --text-01: #45413E;
-    --light-01: #F9F9F9;
+    --text-01: #2b2b2b;
+    --light-01: #f7f7f7;
     --light-02: #FFFFFF;
     --brand-01: #20c0ff;
     --brand-02: #73c6d1;
@@ -247,8 +247,8 @@ nav > #utility {
 }
 
 
-.card-large#sup-dog,
-.card-med#sup-dog > .card-image {
+.card-large#sup-keyboards,
+.card-med#sup-keyboards > .card-image {
     background: linear-gradient(45deg, #463631 0%, #976C5B 100%);
 }
 
@@ -259,20 +259,20 @@ button.btn-outline {
 }
 
 
-.card-large#sup-cat,
-.card-med#sup-cat > .card-image {
+.card-large#sup-switches,
+.card-med#sup-switches > .card-image {
     background: linear-gradient(45deg, #F6AE6C 0%, #ECBD73 100%);
 }
 
 
-.card-large#sup-bird,
-.card-med#sup-bird > .card-image {
+.card-large#sup-keycaps,
+.card-med#sup-keycaps > .card-image {
     background: linear-gradient(45deg, #EFEFEF 0%, #F2F2F2 100%);
 }
 
 
-.card-large#sup-fish,
-.card-med#sup-fish > .card-image {
+.card-large#sup-accessories,
+.card-med#sup-accessories > .card-image {
     background: linear-gradient(45deg, #1E4782 0%, #709DDF 100%);
 }
 
@@ -431,11 +431,11 @@ section.hero h1 {
     font-size: 18px;
 }
 
-#serv-groom > .card-image {
+#serv-assembly > .card-image {
     background: linear-gradient(45deg, #45828C 0%, #A7D4D8 100%);
 }
 
-#serv-board > .card-image {
+#serv-lubing > .card-image {
     background: linear-gradient(45deg, #EDDAA9 0%, #B87D93 100%);
 }
 
