@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fce4ec; /* Light pink background */
+    background-color: #73c6d1; /* Light pink background */
 }
 
 h1 {
@@ -54,7 +54,7 @@ tr:hover {
     padding: 10px 20px; /* Increase button padding */
     margin: 5px; /* Add margin */
     cursor: pointer;
-    background-color: #fce4ec; /* Light pink background */
+    background-color: #73c6d1; /* Light pink background */
     color: #333; /* Dark gray text color */
     border: none;
     border-radius: 4px;
@@ -63,7 +63,7 @@ tr:hover {
 }
 
 .btn:hover {
-    background-color: #f8bbd0; /* Light pink background on hover */
+    background-color: #20c0ff; /* Light pink background on hover */
 }
 
 /* Align action section */

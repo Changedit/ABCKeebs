@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `ABCKeeb`.`product` (
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `product_category_id`
     FOREIGN KEY (`category_id`)
-    REFERENCES `e-commerce`.`category` (`id`)
+    REFERENCES `ABCKeeb`.`category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -6,41 +6,28 @@ function listProducts() {
 
     if (request.status === 200) {
       var products = JSON.parse(request.responseText);
-      var keyboards = {};
-      var keycaps = {};
-      var acccessories = {};
-      var switches = {};
+      var categorizedProducts = {}; // Using an object for a more convenient structure
+
+      for (let i = 0; i < products.length; i++) {
+        let product = products[i];
+        let productName = product.name;
+        let categoryName = product.category_name;
+
+        if (!categorizedProducts[categoryName]) {
+          categorizedProducts[categoryName] = {}; // Create category if it doesn't exist
+        }
+
+        if (!categorizedProducts[categoryName][productName]) {
+          categorizedProducts[categoryName][productName] = []; // Create product entry
+        }
+
+        categorizedProducts[categoryName][productName].push(product);
+      }
+
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       var requestedCategory = urlParams.get("category");
 
-
-      for (var i = 0; i < products.length; i++) {
-        let product = products[i];
-        if (product.category_name === "Keyboards") {
-          if (!keyboards[product.name]) {
-            keyboards[product.name] = [];
-          }
-          keyboards[product.name].push(product);
-        } else if (product.category_name === "Keycaps") {
-          if (!keycaps[product.name]) {
-            keycaps[product.name] = [];
-          }
-          keycaps[product.name].push(product);
-        } else if (product.category_name === "Switches") {
-          if (!switches[product.name]) {
-            switches[product.name] = [];
-          }
-          switches[product.name].push(product);
-        } else {
-          if (!acccessories[product.name]) {
-            acccessories[product.name] = [];
-          }
-          acccessories[product.name].push(product);
-        }
-      }
-
-      var allCategories = [keyboards, keycaps, acccessories, switches];
       var title = document.getElementById("title");
       if (requestedCategory) {
         title.innerHTML = requestedCategory;
@@ -49,15 +36,19 @@ function listProducts() {
       }
       var productList = document.getElementById("product-list");
 
-      for (let i = 0; i < allCategories.length; i++) {
-        let category = allCategories[i];
-        for (const item in category) {
-          if (category.hasOwnProperty(item)) {
-            const variants = category[item];
+      for (const category in categorizedProducts) {
+        for (const items in categorizedProducts[category]) {
+          const item = categorizedProducts[category][items];
+
+          if (categorizedProducts[category].hasOwnProperty(items)) {
+            const variants = item;
             let randomIndex = Math.floor(Math.random() * variants.length);
             let randomVariant = variants[randomIndex];
 
-            if (requestedCategory && requestedCategory !== randomVariant.category_name) {
+            if (
+              requestedCategory &&
+              requestedCategory !== randomVariant.category_name
+            ) {
               continue;
             }
 

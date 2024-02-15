@@ -27,10 +27,22 @@ const db = mysql.createPool(dbConfig);
 function validateProductData(productData) {
   console.log("Validating Product Data:", productData); // Logs out entire object
 
-  if (!productData.product_name || !productData.price) {
+  if (!productData.product_name || !productData.price || !productData.category_id || !productData.picture) {
       throw new Error("Missing required fields");
   } 
-  // ... Further checks ...
+  if (isNaN(productData.price)) {
+      throw new Error("Price must be a number");
+  }
+  if (productData.price < 0) {
+      throw new Error("Price must be a positive number");
+  }
+  if (isNaN(productData.category_id)) {
+      throw new Error("Category ID must be a number");
+  }
+  if (productData.product_name.length > 100) {
+      throw new Error("Product name is too long");
+  }
+
 } 
 
 // Error Handling Middleware
@@ -80,31 +92,6 @@ app.route("/GETproduct/:id").get(async (req, res) => {
     }
   } catch (error) {
     handleError(error, req, res);
-  }
-});
-
-app.route("/GETproductline/:name").get(async (req, res) => {
-  try {
-      const sql = "SELECT product.name, " +
-                  "product.description AS description, " +
-                  "product.price AS price, " +
-                  "category.id AS category_id, " + 
-                  "category.name AS category_name, " +
-                  "product.picture AS picture, " +
-                  "product.variant AS variant " +
-                  "FROM `ABCKeeb`.`product` " +
-                  "JOIN `ABCKeeb`.`category` ON product.category_id = category.id " +
-                  "WHERE product.name = ?";
-      const parameters = [req.params.name]; 
-      const result = await executeQuery(sql, parameters);
-
-      if (result.length === 0) {
-          res.status(404).json({ error: "Product line not found" }); // Refined Error
-      } else {
-          res.json(result);
-      }
-  } catch (error) {
-      handleError(error, req, res);
   }
 });
 

@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/POST_Product.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Edit product</title>
+    <link rel="stylesheet" href="css/Product_form.css" />
+    <title>Add New Product</title>
   </head>
   <body>
-    <h1>Edit Product</h1>
-    <form id="addProductForm">
+    <h1>Add Product</h1>
+    <form id="updateProductForm">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" autocomplete="name" required />
 
@@ -19,7 +18,7 @@
         id="variant"
         name="variant"
         autocomplete="variant"
-        required
+
       />
 
       <label for="price">Price</label>
@@ -41,13 +40,6 @@
       />
 
       <label for="picture">Picture</label>
-      <div class="directory-options">
-        <input type="radio" id="relative-directory" name="directory-type" value="relative" />
-        <label for="relative-directory">Automatic</label>
-    
-        <input type="radio" id="absolute-directory" name="directory-type" value="absolute" /> 
-        <label for="absolute-directory">Manual</label>
-    </div>
     
     <input type="text" id="picture" name="picture" autocomplete="picture" class="image-path-input" /> 
     
@@ -63,9 +55,8 @@
         required
       />
 
-      <input type="submit" value="Add Product" />
+      <input type="submit" value="Update Product" />
     </form>
-    <script src="Js/updateProductData.js"></script>
-
+    <script src="Js/PUT_Product.js"></script>
   </body>
 </html>
