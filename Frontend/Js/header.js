@@ -21,28 +21,15 @@ function displayProductLines() {
   request.onload = function () {
     var products = JSON.parse(request.responseText);
     var keyboards = [];
-    var keycaps = [];
-    var switches = [];
-    var accessories = [];
     var randomKeyboards = {};
 
     for (var i = 0; i < products.length; i++) {
       let product = products[i];
       if (product.category_name === "Keyboards") {
         keyboards.push(product);
-      } else if (product.category_name === "Keycaps") {
-        keycaps.push(product);
-      } else if (product.category_name === "Switches") {
-        switches.push(product);
-      } else {
-        accessories.push(product);
-      }
     }
+  }
 
-    console.log(keyboards);
-    console.log(keycaps);
-    console.log(switches);
-    console.log(accessories);
 
     let nameVariantsMap = {};
     // Build a map of product names to their variants
@@ -61,7 +48,6 @@ function displayProductLines() {
         randomKeyboards[productName] = randomVariant;
       }
     }
-    console.log(randomKeyboards);
 
     var productLine = document.getElementById("product-line");
     for (const name in randomKeyboards) {
@@ -81,7 +67,7 @@ function displayProductLines() {
         keyboard.picture +
         '" />' +
         "</div>" +
-        '<a href="product.html?productName=' + keyboard.name + '">' +
+        '<a href="product.html?category=Keyboards&productLine=' + keyboard.name + '">' +
         "<span>" +
         keyboard.name +
         "</span>" +
