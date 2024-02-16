@@ -39,7 +39,7 @@ function listProducts() {
       for (const category in categorizedProducts) {
         for (const items in categorizedProducts[category]) {
           const item = categorizedProducts[category][items];
-
+          const category_id = item[0].category_id;
           if (categorizedProducts[category].hasOwnProperty(items)) {
             const variants = item;
             let randomIndex = Math.floor(Math.random() * variants.length);
@@ -81,8 +81,7 @@ function listProducts() {
               `<span class="product-category">` +
               category_name +
               `</span>` +
-              `<h4><a href="product.html?productLine=` +
-              name +
+              `<h4><a href="product.html?category_id=` + category_id + `&name=` + name +
               `">` +
               name +
               `</a></h4>` +

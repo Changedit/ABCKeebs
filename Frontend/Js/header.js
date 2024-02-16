@@ -67,7 +67,7 @@ function displayProductLines() {
         keyboard.picture +
         '" />' +
         "</div>" +
-        '<a href="product.html?category=Keyboards&productLine=' + keyboard.name + '">' +
+        '<a href="product.html?category_id=1&name=' + keyboard.name + '">' +
         "<span>" +
         keyboard.name +
         "</span>" +

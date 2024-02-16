@@ -168,6 +168,27 @@ app.route("/UPDATEproduct/:id").put(async (req, res) => {
   }
 });
 
+
+app.route("/GETProductLine").get(async (req, res) => {
+  try {
+    const sql = "SELECT * FROM `ABCKeeb`.`product` WHERE name = ? AND category_id = ?";
+    const parameters = [req.query.name, req.query.category_id];  // Access via req.query
+    console.log(parameters);
+    const result = await executeQuery(sql, parameters);
+
+    if (result.length === 0) {
+      res.status(404).json({ error: "Product not found" });
+    } else {
+      res.json(result);
+      console.log(result);
+    }
+  } catch (error) {
+    handleError(error, req, res);
+  }
+});
+
+
+
 // DELETE /DELETE product Route
 app.route("/DELETEproduct/:id").delete(async (req, res) => {
   try {
