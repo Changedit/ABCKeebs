@@ -1,15 +1,36 @@
 const variantDictionary = {
-  azur: "background: #2ecbbe",
-  iced: "background: #c9cdd0",
-  haze: "background: #a53fb8",
-  soya: "background: #aea797",
-  moon: "background: #818a8b",
-  noct: "background: #6d6e70",
-  kuro: "background: #b7b9b8",
-  rose: "background: #a59790",
-  dandy: "background: #768E72",
-  neko: "background: #F8C8DC",
-  metropolis: "background: #282B30",
+  azur: "#22BFB1, #054842",
+  iced: "#CCCFD0,#454448",
+  haze: "#A33EB7, #2D1740",
+  soya: "#EDE6D7, #ABA494",
+  moon: "#BEC6CC, #81898C",
+  noct: "#707374, #1E1F23",
+  milk: "#F4F6F6, #B6B9BA",
+  kuro: "#535253, #010303",
+  rose: "#F5E9DD , #A25D43",
+  dandy: "#B8B1A7, #55655B",
+  neko: "#C8BFC2, #BF7E96",
+  metropolis: "#29A283 , #1D262A",
+  dualshot: "#ADAEB3, #454649",
+  fuji: "#6E6574, #A1A9C5",
+  ivory: "#DABDAD, #DBB59F",
+  eclipse: "#D16360, #201C22",
+  pagoda: "#A6AFB9, #394250",
+  rocks: "#D1BAAB, #5B6972",
+  black: "#000000, #000000",
+  duck: "#F7D67D, #606770",
+  frog: "#AEDCA6, #8AAE7E",
+  cream: "#E7EEEA, #595950",
+  ink: "#0B0B0B, #B3B2B1",
+  dark: "#E46900, #555458",
+  light: "#FCC133, #E8E7E1",
+  lake: "#60697C, #2B3650",
+  mint: "#80C0A5, #1D984C",
+  musk: "#DFB3C4, #BE647F",
+  tang: "#E4D2B7, #CB9139",
+  tea_egg: "#E2C713, #73503A",
+  yolk: "#E4C921, #E2E0DC",
+  black: "#000000, #FFFFFF",
 };
 
 // Function to retrieve all products and update the HTML content for the product list
@@ -60,9 +81,9 @@ function displayProductLines() {
       }
       productLine.innerHTML +=
         '<li class="card-med">' +
-        '<div class="card-image" style="' +
+        '<div class="card-image" style="background: linear-gradient(196deg, ' +
         color +
-        '">' +
+        ')">' +
         '<img src="' +
         keyboard.picture +
         '" />' +

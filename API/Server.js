@@ -172,7 +172,7 @@ app.route("/UPDATEproduct/:id").put(async (req, res) => {
 app.route("/GETProductLine").get(async (req, res) => {
   try {
     const sql = "SELECT * FROM `ABCKeeb`.`product` WHERE name = ? AND category_id = ?";
-    const parameters = [req.query.name, req.query.category_id];  // Access via req.query
+    const parameters = [req.query.name, req.query.category_id];
     console.log(parameters);
     const result = await executeQuery(sql, parameters);
 

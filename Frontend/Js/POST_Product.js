@@ -82,8 +82,11 @@ addProductForm.addEventListener("submit", async (event) => {
     }
 
     // Basic validation (Enhance as needed)
-    if (!productName || !productPrice || !productCategory || !picturePath) {
+    if (!productName || !productPrice || !productCategory || !picturePath || !productDescription || !productVariant) {
       alert("Please fill all required fields.");
+      return;
+    } else if (picturePath.includes(`'`) || productDescription.includes(`'`) || productVariant.includes(`'`)){
+      alert("Please remove any single quotes from the fields.");
       return;
     }
 

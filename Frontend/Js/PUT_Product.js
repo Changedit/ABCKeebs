@@ -29,10 +29,15 @@ updateProductForm.addEventListener("submit", async (event) => {
   var picture = document.getElementById("picture").value;
   var category_id = document.getElementById("category").value;
   console.log(name, variant, price, description, picture, category_id);
-  if (!name || !price || !category || !picture) {
+  
+  if (!name || !price || !category || !picture || !description || !variant) {
     alert("Please fill all required fields.");
     return;
+  } else if ((name || price || category || picture || description || variant).includes("'")) {
+    alert("Please remove any single quotes from the fields.");
+    return;
   }
+
   var data = {
     product_name: name,
     price: price,
