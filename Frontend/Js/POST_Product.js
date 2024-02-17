@@ -45,6 +45,25 @@ function fetchCategoryName(categoryId) {
   });
 }
 
+function fetchCategories() {
+  return new Promise((resolve, reject) => {
+    var request = new XMLHttpRequest();
+    request.open("GET", "http://localhost:8080/GETcategories", true);
+    request.onload = function () {
+      if (request.status === 200) {
+        const categories = JSON.parse(request.responseText);
+        console.log("Categories:", categories);
+        resolve(categories);
+      } else {
+        console.error("Error fetching categories: ", request.status);
+        reject("Error fetching categories");
+      }
+    };
+    request.send();
+  });
+}
+
+
 // Inside the submit event listener function
 addProductForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -55,6 +74,8 @@ addProductForm.addEventListener("submit", async (event) => {
   const productPrice = document.getElementById("price").value;
   const productDescription = document.getElementById("description").value;
   const productCategory = document.getElementById("category").value;
+  
+
   // Get directory type
   const directoryType = document.querySelector(
     'input[name="directory-type"]:checked'
@@ -63,7 +84,6 @@ addProductForm.addEventListener("submit", async (event) => {
   try {
     // Fetch category name
     const categoryName = await fetchCategoryName(productCategory);
-
     // Construct picturePath
     let picturePath;
     if (directoryType === "relative") {
@@ -126,3 +146,15 @@ addProductForm.addEventListener("submit", async (event) => {
     alert("An error occurred while adding the product.");
   }
 });
+
+window.onload = async () => {
+  const categories = await fetchCategories();
+  const categoryDropdown = document.getElementById("category");
+  categoryDropdown.innerHTML = ""; // Clear the existing options
+  console.log("Categories:", categories);
+  categories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category.id;
+    option.textContent = category.name;
+    categoryDropdown.appendChild(option); });
+  };

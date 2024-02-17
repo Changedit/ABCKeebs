@@ -207,6 +207,17 @@ app.route("/DELETEproduct/:id").delete(async (req, res) => {
   }
 });
 
+app.route("/GETcategories").get(async (req, res) => {
+  try {
+      const sql = "SELECT * FROM `ABCKeeb`.`category`";
+      const result = await executeQuery(sql);
+      res.json(result);
+  } catch (error) {
+      handleError(error, req, res);
+  }
+});
+
+
 app.route("/GETcategory/:id").get(async (req, res) => {
   try {
       const categoryId = req.params.id;
