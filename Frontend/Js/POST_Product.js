@@ -30,7 +30,7 @@ absoluteRadio.addEventListener("change", () => {
 function fetchCategoryName(categoryId) {
   return new Promise((resolve, reject) => {
     var request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:8080/GETCategory/" + categoryId, true);
+    request.open("GET", "http://localhost:8080/GETcategory/" + categoryId, true);
     request.onload = function () {
       if (request.status === 200) {
         const categoryData = JSON.parse(request.responseText);
