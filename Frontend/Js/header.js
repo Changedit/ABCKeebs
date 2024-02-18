@@ -29,7 +29,7 @@ const variantDictionary = {
   musk: "#DFB3C4, #BE647F",
   tang: "#E4D2B7, #CB9139",
   yolk: "#E4C921, #2b2926",
-  black: "#000000, #FFFFFF",
+  black: "#000000, #8c8c8c",
 };
 
 // Function to retrieve all products and update the HTML content for the product list
@@ -45,7 +45,7 @@ function displayProductLines() {
 
     for (var i = 0; i < products.length; i++) {
       let product = products[i];
-      if (product.category_name === "Keyboards") {
+      if (product.category_id === 1) {
         keyboards.push(product);
     }
   }

@@ -46,21 +46,28 @@ updateProductForm.addEventListener("submit", async (event) => {
     category_id: category_id,
     picture: picture
   };
-  console.log(data);
-  fetch("http://localhost:8080/UPDATEproduct/" + id , {
+
+
+  const response = await fetch("http://localhost:8080/UPDATEproduct/" + id , {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    
+      if (response.ok) {
+          const result = await response.json();
+          alert("Product updated successfully!");
+          updateProductForm.reset();
+      } else {
+          console.error(
+          "Error updating product:",
+          response.status,
+          response.statusText
+          );
+          alert("An error occurred while updating the product.");
+      }
+
+
 });

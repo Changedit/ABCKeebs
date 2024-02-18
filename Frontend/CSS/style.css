@@ -646,7 +646,7 @@ footer ul li {
         flex-direction: column;
     }
 
-    .shop-pets,
+    .shop-category,
     .services {
         display: flex;
         flex-direction: column;
@@ -730,7 +730,7 @@ footer ul li {
         flex-direction: column;
     }
 
-    .shop-pets {
+    .shop-category {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-row: auto auto;
@@ -777,7 +777,7 @@ footer ul li {
         flex-direction: row;
     }
 
-    .shop-pets,
+    .shop-category,
     .services {
         display: flex;
         flex-direction: row;
@@ -845,7 +845,7 @@ footer ul li {
         background-position: 90% 60%;
     }
 
-    .shop-pets,
+    .shop-category,
     .services {
         display: flex;
         flex-direction: row;

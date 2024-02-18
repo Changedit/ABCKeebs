@@ -52,7 +52,7 @@
   <section class="hero">
     <h1>KARA - Make It Your Own</h1>
     <div class="btn-group">
-      <button class="btn-filled-dark" onclick="browseProducts('All')">
+      <button class="btn-filled-dark" onclick="browseProducts()">
         <span class="material-symbols-outlined"> shopping_cart </span >Shop All Products
       </button>
     </div>
@@ -60,78 +60,8 @@
   <section>
     <h2>Shop by Category</h2>
 
-    <ul class="shop-pets" id="category-display">
-      <li class="card-large card-light" id="sup-keyboards">
-        <div class="card-image">
-          <img src="resources/keyboards/KARA/soya.png" />
-        </div>
-        <ul>
-          Keyboards
-          <li><a href="#">KARA</a></li>
-          <li><a href="#">Thermal</a></li>
-          <li><a href="#">Thermal+</a></li>
+    <ul class="shop-category" id="category-display">
 
-          <button class="btn-outline-light" onclick="browseProducts('Keyboards')">
-            Shop All<span class="material-symbols-outlined">
-              arrow_forward
-            </span>
-          </button>
-        </ul>
-      </li>
-
-      <li class="card-large card-dark" id="sup-switches">
-        <div class="card-image">
-          <img src="resources/switches/FARMLAND/DUCK.png" />
-        </div>
-        <ul>
-          Switches
-          <li><a href="#">Linears</a></li>
-          <li><a href="#">Tactiles</a></li>
-          <li><a href="#">No Clickies sorry</a></li>
-          <button class="btn-outline-dark" onclick="browseProducts('Switches')">
-            Shop All<span class="material-symbols-outlined">
-              arrow_forward
-            </span>
-          </button>
-        </ul>
-      </li>
-
-      <li class="card-large card-dark" id="sup-keycaps">
-        <div class="card-image">
-          <img
-            src="resources/Keycaps/SEQ 1/KURO.png"
-          />
-        </div>
-        <ul>
-          Keycaps
-          <li><a href="#">Heavy Industry</a></li>
-          <li><a href="#">SEQ 1</a></li>
-          <li><a href="#">SEQ 2</a></li>
-          <button class="btn-outline-dark" onclick="browseProducts('Keycaps')">
-            Shop All<span class="material-symbols-outlined">
-              arrow_forward
-            </span>
-          </button>
-        </ul>
-      </li>
-      <li class="card-large card-light" id="sup-accessories">
-        <div class="card-image">
-          <img
-            src="resources/Accessories/Artisan/PAGODA.png"
-          />
-        </div>
-        <ul>
-          Accessories
-          <li><a href="#">M6-C Carrying Case</a></li>
-          <li><a href="#">Artisan Keycaps</a></li>
-          <li><a href="#">More to come</a></li>
-          <button class="btn-outline-light" onclick="browseProducts('Accessories')">
-            Shop All<span class="material-symbols-outlined">
-              arrow_forward
-            </span>
-          </button>
-        </ul>
-      </li>
     </ul>
   </section>
 
@@ -201,6 +131,7 @@
   <script>
     window.onload = function () {
       displayProductLines();
+      listCategories();
     };
   </script>
 </body>
@@ -209,7 +140,7 @@
     Products
     <li><a href="#">KARA</a></li>
     <li><a href="#">THERMAL</a></li>
-    <li><a href="#">THERMAL+</a></li>
+    <li><a href="#">THERMAL PLUS</a></li>
     <li><a href="#">FARMLAND</a></li>
     <li><a href="#">PAINT</a></li>
     <li><a href="#">HEAVY Industry</a></li>

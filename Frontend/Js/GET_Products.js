@@ -1,5 +1,5 @@
 // Function to load product data from the server
-function loadProductData() {
+function populateProductTable() {
   var request = new XMLHttpRequest();
   request.open("GET", "http://localhost:8080/GETProducts", true);
   request.onload = function () {
@@ -14,6 +14,46 @@ function loadProductData() {
     console.error("Request failed");
   };
   request.send();
+}
+
+function populateCategoryTable() {
+  var request = new XMLHttpRequest();
+  request.open("GET", "http://localhost:8080/GETcategories", true);
+  request.onload = function () {
+    if (request.status === 200) {
+      var categories = JSON.parse(request.responseText);
+      displayCategoryData(categories);
+    } else {
+      console.error("Error loading categories. Status:", request.status);
+    }
+  };
+  request.onerror = function () {
+    console.error("Request failed");
+  };
+  request.send();
+}
+
+function displayCategoryData(categories) {
+  var categoryData = document.getElementById("categoryData");
+  var tbody = categoryData.getElementsByTagName("tbody")[0];
+  tbody.innerHTML = "";
+
+  categories.forEach(function (category) {
+    let params = "";
+    for (const info in category) {
+      params += `${info}=${encodeURIComponent(category[info])}&`;
+    }
+    console.log(category);
+    var newRow = tbody.insertRow();
+    newRow.innerHTML = `
+        <td>${category.id}</td>
+        <td>${category.name}</td>
+        <td class="btn-container">
+          <button class="btn" onclick="editCategory(${"`" + params + "`"})">Edit</button>
+          <button class="btn" onclick="deleteCategoryData(${category.id})">Delete</button>
+        </td>
+      `;
+  });
 }
 
 // Function to display product data in the table
@@ -44,6 +84,31 @@ function displayProductData(products) {
         </td>
       `;
   });
+}
+
+function editCategory(params) {
+  window.location.href = `PUT_Category.html?${params}`;
+}
+
+function deleteCategoryData(categoryId) {
+  if (confirm("Are you sure you want to delete this category?")) {
+    console.log("Deleting category with ID: " + categoryId);
+
+    var request = new XMLHttpRequest();
+    const response = fetch("http://localhost:8080/DELETEcategory/" + categoryId, {
+      method: "DELETE",
+    });
+
+    response.then((res) => {
+      if (res.ok) {
+        alert("Category deleted successfully!");
+        location.href = "/GET_Products.html"; // Or reload the current page
+      } else {
+        console.error("Failed to delete category. Status:", res.status);
+      }
+    }
+    );
+  }
 }
 
 // Function to handle editing a product
@@ -79,5 +144,6 @@ function deleteProductData(productId) {
 
 // Load product data when the page is loaded
 window.onload = function () {
-  loadProductData();
+  populateProductTable();
+  populateCategoryTable();
 };

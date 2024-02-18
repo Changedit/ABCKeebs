@@ -238,6 +238,44 @@ app.route("/GETcategory/:id").get(async (req, res) => {
   }
 });
 
+
+app.route("/POSTcategory/").post(async (req, res) => {
+  try {
+      const sql = "INSERT INTO `ABCKeeb`.`category` (`name`) VALUES (?)";
+      const parameters = [req.body.name];
+      const result = await executeQuery(sql, parameters);
+      res.json(result);
+  } catch (error) {
+      handleError(error, req, res);
+  }
+}
+);
+
+app.route("/UPDATEcategory/:id").put(async (req, res) => {
+  try {
+      const sql = "UPDATE `ABCKeeb`.`category` SET name = ? WHERE id = ?";
+      const parameters = [req.body.name, req.params.id];
+      const result = await executeQuery(sql, parameters);
+      res.json(result);
+  } catch (error) {
+      handleError(error, req, res);
+  }
+}
+);
+
+app.route("/DELETEcategory/:id").delete(async (req, res) => {
+  try {
+      const sql = "DELETE FROM `ABCKeeb`.`category` WHERE id = ?";
+      const parameters = [req.params.id];
+      const result = await executeQuery(sql, parameters);
+      res.json(result);
+  } catch (error) {
+      handleError(error, req, res);
+  }
+}
+);
+
+
 // Error Handling (place at the end)
 app.use(handleError);
 
