@@ -33,7 +33,7 @@ updateProductForm.addEventListener("submit", async (event) => {
   if (!name || !price || !category || !picture || !description || !variant) {
     alert("Please fill all required fields.");
     return;
-  } else if ((name || price || category || picture || description || variant).includes("'")) {
+  } else if (name.includes(`'`) || description.includes(`'`) || variant.includes(`'`)){
     alert("Please remove any single quotes from the fields.");
     return;
   }

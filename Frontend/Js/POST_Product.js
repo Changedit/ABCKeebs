@@ -101,7 +101,6 @@ addProductForm.addEventListener("submit", async (event) => {
       picturePath = document.getElementById("picture").value;
     }
 
-    // Basic validation (Enhance as needed)
     if (!productName || !productPrice || !productCategory || !picturePath || !productDescription || !productVariant) {
       alert("Please fill all required fields.");
       return;
