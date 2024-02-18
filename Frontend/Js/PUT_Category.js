@@ -1,5 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
-
+window.onload = function () {
+  let name = urlParams.get("name");
+  document.getElementById("name").value = name;
+};
 
 // Update Product
 const updateCategoryForm = document.getElementById("updateCategoryForm");
