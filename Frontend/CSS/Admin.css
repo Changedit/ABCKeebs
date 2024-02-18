@@ -66,6 +66,21 @@ tr:hover {
     background-color: #20c0ff; /* Light pink background on hover */
 }
 
+.btn-big {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 15px 30px; /* Increase button padding */
+    font-size: 18px; /* Increase button font size */
+    color : #fff; /* White text color */
+    background-color: #007bff; /* Blue background */
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 /* Align action section */
 .action-section {
     text-align: center;

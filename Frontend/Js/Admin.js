@@ -142,6 +142,10 @@ function deleteProductData(productId) {
   }
 }
 
+function redirect(location) {
+  window.location.href = location
+}
+
 // Load product data when the page is loaded
 window.onload = function () {
   populateProductTable();

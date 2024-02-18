@@ -36,18 +36,21 @@ CREATE TABLE IF NOT EXISTS `ABCKeeb`.`product` (
   `description` VARCHAR(200) NOT NULL,
   `price` DECIMAL(10,2) NOT NULL,
   `category_id` INT NOT NULL,
-  `picture` VARCHAR(200) NULL,
-  `variant` VARCHAR(20) NULL ,
+  `picture` VARCHAR(200) NOT NULL,
+  `variant` VARCHAR(20) NOT NULL ,
   PRIMARY KEY (`id`),
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `product_category_id`
     FOREIGN KEY (`category_id`)
     REFERENCES `ABCKeeb`.`category` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'john4int';
+
