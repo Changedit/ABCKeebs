@@ -14,7 +14,7 @@ function listCategories() {
 
     if (request.status === 200) {
       var products = JSON.parse(request.responseText);
-      var categorizedProducts = {}; // Using an object for a more convenient structure
+      var categorizedProducts = {};
 
       for (let i = 0; i < products.length; i++) {
         let product = products[i];
@@ -22,11 +22,11 @@ function listCategories() {
         let categoryName = product.category_name;
 
         if (!categorizedProducts[categoryName]) {
-          categorizedProducts[categoryName] = {}; // Create category if it doesn't exist
+          categorizedProducts[categoryName] = {};
         }
 
         if (!categorizedProducts[categoryName][productName]) {
-          categorizedProducts[categoryName][productName] = []; // Create product entry
+          categorizedProducts[categoryName][productName] = [];
         }
 
         categorizedProducts[categoryName][productName].push(product);

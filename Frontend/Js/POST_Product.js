@@ -1,32 +1,32 @@
 
-// Function to display or hide the input
+
 function toggleImagePathInput(showImageInput, imagePath = "") {
-  // Added imagePath
+
   const imagePathInput = document.querySelector(".image-path-input");
   imagePathInput.style.display = showImageInput ? "block" : "none";
 
-  // Update the display element
+
   const displayPathElement = document.getElementById("display-path");
-  displayPathElement.textContent = imagePath; // Update the text content
+  displayPathElement.textContent = imagePath;
 }
 
-// Call it at initialization to match initial visibility
-toggleImagePathInput(false); // Initially the input is hidden
 
-// Add Event Listeners to the radio buttons (modify your existing selectors or add the below on change of a single element).
+toggleImagePathInput(false);
+
+
 const relativeRadio = document.getElementById("relative-directory");
 const absoluteRadio = document.getElementById("absolute-directory");
 
-const addProductForm = document.getElementById("addProductForm"); // Get the form element
+const addProductForm = document.getElementById("addProductForm");
 
 relativeRadio.addEventListener("change", () => {
-  toggleImagePathInput(false); // No need to pass in a path yet
+  toggleImagePathInput(false);
 });
 
 absoluteRadio.addEventListener("change", () => {
   toggleImagePathInput(true);
 });
-// Function to fetch category name
+
 function fetchCategoryName(categoryId) {
   return new Promise((resolve, reject) => {
     var request = new XMLHttpRequest();
@@ -64,11 +64,11 @@ function fetchCategories() {
 }
 
 
-// Inside the submit event listener function
+
 addProductForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  // Gather form data
+
   const productName = document.getElementById("name").value;
   const productVariant = document.getElementById("variant").value;
   const productPrice = document.getElementById("price").value;
@@ -76,15 +76,15 @@ addProductForm.addEventListener("submit", async (event) => {
   const productCategory = document.getElementById("category").value;
   
 
-  // Get directory type
+
   const directoryType = document.querySelector(
     'input[name="directory-type"]:checked'
   ).value;
 
   try {
-    // Fetch category name
+
     const categoryName = await fetchCategoryName(productCategory);
-    // Construct picturePath
+
     let picturePath;
     if (directoryType === "relative") {
       picturePath =
@@ -96,7 +96,7 @@ addProductForm.addEventListener("submit", async (event) => {
         productVariant +
         ".png";
       console.log("Calculated Path:", picturePath);
-      toggleImagePathInput(false, picturePath); // Show the calculated path
+      toggleImagePathInput(false, picturePath);
     } else {
       picturePath = document.getElementById("picture").value;
     }
@@ -109,7 +109,7 @@ addProductForm.addEventListener("submit", async (event) => {
       return;
     }
 
-    // Create the product object
+
     const product = {
       product_name: productName,
       description: productDescription,
@@ -119,7 +119,7 @@ addProductForm.addEventListener("submit", async (event) => {
       picture: picturePath,
     };
 
-    // Make the POST request using fetch
+
     const response = await fetch("/POSTproduct", {
       method: "POST",
       headers: {
@@ -149,7 +149,7 @@ addProductForm.addEventListener("submit", async (event) => {
 window.onload = async () => {
   const categories = await fetchCategories();
   const categoryDropdown = document.getElementById("category");
-  categoryDropdown.innerHTML = ""; // Clear the existing options
+  categoryDropdown.innerHTML = "";
   console.log("Categories:", categories);
   categories.forEach((category) => {
     const option = document.createElement("option");

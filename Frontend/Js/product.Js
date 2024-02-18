@@ -47,7 +47,6 @@ function updateProductInfo(category_name , price, variant, description) {
 }
 
 function displayProductLine(products, category_name) {
-  // receive category_name as parameter
   let firstProduct = products[0];
   let variant = firstProduct.variant;
   let price = firstProduct.price;
@@ -201,7 +200,7 @@ window.onload = async function () {
     var products = await GETProductLine();
     var category_name = await GETCategoryName();
     console.log(products, category_name);
-    displayProductLine(products, category_name); // pass category_name as an argument
+    displayProductLine(products, category_name);
   } catch (err) {
     console.log(err);
   }

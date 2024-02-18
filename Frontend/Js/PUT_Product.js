@@ -17,7 +17,7 @@ window.onload = function () {
   document.getElementById("category").value = category_id;
 };
 
-// Update Product
+
 const updateProductForm = document.getElementById("updateProductForm");
 updateProductForm.addEventListener("submit", async (event) => {
   event.preventDefault();

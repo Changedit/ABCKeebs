@@ -1,4 +1,3 @@
-// Function to load product data from the server
 function populateProductTable() {
   var request = new XMLHttpRequest();
   request.open("GET", "http://localhost:8080/GETProducts", true);
@@ -49,18 +48,21 @@ function displayCategoryData(categories) {
         <td>${category.id}</td>
         <td>${category.name}</td>
         <td class="btn-container">
-          <button class="btn" onclick="editCategory(${"`" + params + "`"})">Edit</button>
-          <button class="btn" onclick="deleteCategoryData(${category.id})">Delete</button>
+          <button class="btn" onclick="editCategory(${
+            "`" + params + "`"
+          })">Edit</button>
+          <button class="btn" onclick="deleteCategoryData(${
+            category.id
+          })">Delete</button>
         </td>
       `;
   });
 }
 
-// Function to display product data in the table
 function displayProductData(products) {
-  var productData = document.getElementById("productData"); // Assuming your table has the ID 'productData'
+  var productData = document.getElementById("productData");
   var tbody = productData.getElementsByTagName("tbody")[0];
-  tbody.innerHTML = ""; // Clear existing data
+  tbody.innerHTML = "";
 
   products.forEach(function (product) {
     let params = "";
@@ -75,12 +77,18 @@ function displayProductData(products) {
         <td>${product.variant}</td>
         <td>${product.price}</td>
         <td>${product.description}</td>
-        <td><img src="../${product.picture}" alt="Product Image" width="150"></td> 
+        <td><img src="../${
+          product.picture
+        }" alt="Product Image" width="150"></td> 
         <td>${product.category_id}</td>
         <td>${product.category_name}</td> 
         <td class="btn-container">
-          <button class="btn" onclick="editProduct(${"`" + params + "`"})">Edit</button>
-          <button class="btn" onclick="deleteProductData(${product.id})">Delete</button>
+          <button class="btn" onclick="editProduct(${
+            "`" + params + "`"
+          })">Edit</button>
+          <button class="btn" onclick="deleteProductData(${
+            product.id
+          })">Delete</button>
         </td>
       `;
   });
@@ -95,29 +103,28 @@ function deleteCategoryData(categoryId) {
     console.log("Deleting category with ID: " + categoryId);
 
     var request = new XMLHttpRequest();
-    const response = fetch("http://localhost:8080/DELETEcategory/" + categoryId, {
-      method: "DELETE",
-    });
+    const response = fetch(
+      "http://localhost:8080/DELETEcategory/" + categoryId,
+      {
+        method: "DELETE",
+      }
+    );
 
     response.then((res) => {
       if (res.ok) {
         alert("Category deleted successfully!");
-        location.href = "/Admin.html"; // Or reload the current page
+        location.href = "/Admin.html";
       } else {
         console.error("Failed to delete category. Status:", res.status);
       }
-    }
-    );
+    });
   }
 }
 
-// Function to handle editing a product
 function editProduct(params) {
-  // Redirect to updateProductData.html with the product ID as a query parameter
   window.location.href = `PUT_Product.html?${params}`;
 }
 
-// Function to handle deleting a product
 function deleteProductData(productId) {
   if (confirm("Are you sure you want to delete this product?")) {
     console.log("Deleting product with ID: " + productId);
@@ -132,7 +139,7 @@ function deleteProductData(productId) {
     request.onload = function () {
       if (request.status === 200) {
         console.log("Product deleted successfully");
-        location.href = "/Admin.html"; // Or reload the current page
+        location.href = "/Admin.html";
       } else {
         console.error("Failed to delete product. Status:", request.status);
       }
@@ -143,10 +150,9 @@ function deleteProductData(productId) {
 }
 
 function redirect(location) {
-  window.location.href = location
+  window.location.href = location;
 }
 
-// Load product data when the page is loaded
 window.onload = function () {
   populateProductTable();
   populateCategoryTable();

@@ -1,3 +1,4 @@
+
 const variantDictionary = {
   azur: "#22BFB1, #054842",
   iced: "#CCCFD0,#454448",
@@ -32,7 +33,7 @@ const variantDictionary = {
   black: "#000000, #8c8c8c",
 };
 
-// Function to retrieve all products and update the HTML content for the product list
+
 function displayProductLines() {
   var request = new XMLHttpRequest();
 
@@ -52,14 +53,12 @@ function displayProductLines() {
 
 
     let nameVariantsMap = {};
-    // Build a map of product names to their variants
     keyboards.forEach((product) => {
       if (!nameVariantsMap[product.name]) {
         nameVariantsMap[product.name] = [];
       }
       nameVariantsMap[product.name].push(product);
     });
-    // Select one variant randomly from each product name
     for (let productName in nameVariantsMap) {
       if (nameVariantsMap.hasOwnProperty(productName)) {
         let variants = nameVariantsMap[productName];

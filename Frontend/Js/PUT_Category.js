@@ -4,7 +4,7 @@ window.onload = function () {
   document.getElementById("name").value = name;
 };
 
-// Update Product
+
 const updateCategoryForm = document.getElementById("updateCategoryForm");
 updateCategoryForm.addEventListener("submit", async (event) => {
   event.preventDefault();

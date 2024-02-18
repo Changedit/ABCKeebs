@@ -1,0 +1,729 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Project-AY2324 Oct-Project Report</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a264dd88-38ca-4c15-920d-18a93d2b5f23" class="page sans"><header><h1 class="page-title">Project-AY2324 Oct-Project Report</h1><p class="page-description"></p></header><div class="page-body"><p id="bdb24579-5aff-4014-be8d-995d962192c5" class="">
+</p><p id="a4fd003a-f42f-443f-a35d-b3e3f2e8141e" class="">Zeng RuoShui (2303933B)</p><p id="bfdc2394-8286-40ac-b220-5b98def4187a" class="">C23U02</p><p id="133e69b3-dcb7-4195-98f4-2e08f39584ba" class="">ADEV Assignment Report</p><p id="fdcc6082-fa2e-40dd-a844-c0a66e1ebaa0" class="">
+</p><p id="548ee374-5a9f-47e8-9e48-de19da8b5b82" class="">Temasek Polytechnic</p><p id="a33dd0ad-06d9-40e8-8b13-e57431b30210" class="">School of Informatics &amp; IT</p><p id="4c819485-b7df-41db-bb49-ba34606a45ba" class=""><strong>CIT1C21 Application Development Project</strong></p><p id="61da89a4-d5e0-478c-8a1d-94aa9473d88c" class=""><strong>CIA1C06 Database Application Development</strong></p><p id="f863b237-e90b-441a-98e4-219e8179d6e1" class=""><strong>AY 23/24 Oct Semester</strong></p><p id="13282ac6-11a6-4663-aadd-1b5605aaba9e" class=""><strong>(Report)</strong></p><h1 id="cf5bb856-edd5-42ad-90c2-68d3587f7b23" class="">Table of Contents</h1><p id="ffa20c95-5f66-4881-ba70-ca99b0b17759" class="">Section A: Backend RESTful API declaration </p><p id="2fbf2c98-ccf8-41c7-bd1c-e3cf539b8b99" class="">Section B: Frontend function declaration </p><p id="2ad25917-8cf3-4afc-b55f-e06c182f0a2d" class="">Section C: Instructions to run the project</p><h1 id="240c93c6-bca2-4549-8601-b5656756bf19" class="">Section A: Backend RESTful API declaration</h1><p id="4e6b5ebb-301d-4a5d-bad8-aaf4e032e02c" class="">Write out the route pattern and HTTP method for every functionality that your web application has.</p><p id="1d05231d-f9d8-48b5-a8dd-4250263d42b2" class=""><strong>All RESTful APIs must be indicated here.</strong></p><p id="38fa237b-5070-43d6-bf4f-d1fa1bc91326" class="">Note: Please replace the examples in the following table with your own in your final submission</p><table id="d20235c3-3404-4d36-b746-7ff5ccc65988" class="simple-table"><thead class="simple-table-header"><tr id="6e72ef55-11ad-4010-84c7-099d91d1be1a"><th id="Fkn|" class="simple-table-header-color simple-table-header" style="width:172.5px"><strong>Functionality of Web Application</strong></th><th id="yT{?" class="simple-table-header-color simple-table-header" style="width:172.5px"><strong>URL Route Pattern</strong></th><th id="XpQA" class="simple-table-header-color simple-table-header" style="width:172.5px"><strong>Input</strong></th><th id=";Oeo" class="simple-table-header-color simple-table-header" style="width:172.5px"><strong>HTTP Method</strong></th></tr></thead><tbody><tr id="99c80a4c-813d-49fe-8ef2-5cff7b7368e5"><td id="Fkn|" class="block-color-orange_background" style="width:172.5px">Get product by id</td><td id="yT{?" class="block-color-orange_background" style="width:172.5px">/GETproduct/:id</td><td id="XpQA" class="block-color-orange_background" style="width:172.5px"></td><td id=";Oeo" class="block-color-orange_background" style="width:172.5px">GET</td></tr><tr id="ad9a3ff4-79f7-467e-a907-3630d57f5d61"><td id="Fkn|" class="block-color-orange_background" style="width:172.5px">Get all products</td><td id="yT{?" class="block-color-orange_background" style="width:172.5px">/GETproducts</td><td id="XpQA" class="block-color-orange_background" style="width:172.5px"></td><td id=";Oeo" class="block-color-orange_background" style="width:172.5px">GET</td></tr><tr id="8334ffb0-573d-49ca-895a-31f8528654c2"><td id="Fkn|" class="block-color-orange_background" style="width:172.5px">Add product</td><td id="yT{?" class="block-color-orange_background" style="width:172.5px">/POSTproduct</td><td id="XpQA" class="block-color-orange_background" style="width:172.5px">{<br/>&quot;product_name&quot;: &quot;Carrying Case&quot;,<br/>&quot;description&quot;: &quot;Carrying Case&quot;,<br/>&quot;price&quot;: &quot;23&quot;,<br/>&quot;category_id&quot;: &quot;4&quot;,<br/>&quot;variant&quot;: &quot;Black&quot;,<br/>&quot;picture&quot;: &quot;../resources/Accessories/Carrying Case/Black.png&quot;<br/>}<br/></td><td id=";Oeo" class="block-color-orange_background" style="width:172.5px">POST</td></tr><tr id="283552d0-4c91-4188-9541-179fb7c2caed"><td id="Fkn|" class="block-color-orange_background" style="width:172.5px">Update product by id</td><td id="yT{?" class="block-color-orange_background" style="width:172.5px">/UPDATEproduct/:id</td><td id="XpQA" class="block-color-orange_background" style="width:172.5px">{<br/>&quot;product_name&quot;: &quot;Carrying Case&quot;,<br/>&quot;price&quot;: &quot;23&quot;,<br/>&quot;variant&quot;: &quot;Black&quot;,<br/>&quot;description&quot;: &quot;Carrying Case, very good&quot;,<br/>&quot;category_id&quot;: &quot;4&quot;,<br/>&quot;picture&quot;: &quot;../resources/Accessories/Carrying Case/Black.png&quot;<br/>}<br/></td><td id=";Oeo" class="block-color-orange_background" style="width:172.5px">PUT</td></tr><tr id="21bad960-9370-40a6-b015-afdb5f376b04"><td id="Fkn|" class="block-color-orange_background" style="width:172.5px">Delete product by id</td><td id="yT{?" class="block-color-orange_background" style="width:172.5px">/DELETEproduct/:id</td><td id="XpQA" class="block-color-orange_background" style="width:172.5px"></td><td id=";Oeo" class="block-color-orange_background" style="width:172.5px">DELETE</td></tr><tr id="ebf64100-698e-422b-9bee-8d490f715016"><td id="Fkn|" class="block-color-orange_background" style="width:172.5px">Get products by category and name</td><td id="yT{?" class="block-color-orange_background" style="width:172.5px">/GETProductLine</td><td id="XpQA" class="block-color-orange_background" style="width:172.5px">{<br/>name: KARA<br/>category_id: 1<br/>}<br/></td><td id=";Oeo" class="block-color-orange_background" style="width:172.5px">GET</td></tr><tr id="58b7e106-c1f5-46a3-b986-2c5502bbf8e9"><td id="Fkn|" class="block-color-teal_background" style="width:172.5px">Get category by id</td><td id="yT{?" class="block-color-teal_background" style="width:172.5px">/GETcategory/:id</td><td id="XpQA" class="block-color-teal_background" style="width:172.5px"></td><td id=";Oeo" class="block-color-teal_background" style="width:172.5px">GET</td></tr><tr id="1f549c49-2916-4a66-866d-5dd5027e0c42"><td id="Fkn|" class="block-color-teal_background" style="width:172.5px">Get all categories</td><td id="yT{?" class="block-color-teal_background" style="width:172.5px">/GETcategories</td><td id="XpQA" class="block-color-teal_background" style="width:172.5px"></td><td id=";Oeo" class="block-color-teal_background" style="width:172.5px">GET</td></tr></tbody></table><h1 id="baf16cb5-a752-4705-970f-e32660792f9e" class="">Section B: Frontend function declaration</h1><p id="f7f90ba8-268d-4ec8-847a-3c0e6c04a5ed" class="">Indicate your webpage URL for every functionality that your web application has.</p><p id="41ea6e7e-a3d1-4ad5-8b6a-a566504aa1e1" class="">Note: Please replace the examples in the following table with your own in your final submission</p><table id="db6b258f-ad8d-405c-badb-8d9ceb138f56" class="simple-table"><thead class="simple-table-header"><tr id="8602e4c1-cf70-4828-bc5d-53b7a2387801"><th id="[g?b" class="simple-table-header-color simple-table-header" style="width:230px"><strong>Functionalities of Web Application</strong></th><th id="R\oJ" class="simple-table-header-color simple-table-header" style="width:230px"><strong>URL</strong></th><th id="PztQ" class="simple-table-header-color simple-table-header" style="width:230px"><strong>Steps to test the functionality</strong></th></tr></thead><tbody><tr id="40b9594f-90bb-42a9-bbce-45804c841e18"><td id="[g?b" class="block-color-gray_background" style="width:230px">Header - Product lines display</td><td id="R\oJ" class="block-color-gray_background" style="width:230px"><a href="http://localhost:8080/index.html">Index.html</a><br/><br/><br/><strong>OR<br/><br/></strong><br/><br/><a href="http://localhost:8080/product.html?category_id=1&amp;name=KARA">Product.html</a><br/><br/><br/><strong>OR<br/><br/></strong><br/><br/><a href="http://localhost:8080/products.html">Products.html</a></td><td id="PztQ" class="block-color-gray_background" style="width:230px">• Hove over the <code>Product Lines</code> text<br/><br/><br/><em>It will show a random color of products with </em><em><code>category_id</code></em><em> 1 each time the page is reloaded<br/><br/>Click on corresponding product name for direct access to the product’s page<br/><br/>Click on Product Lines itself to get redirected to Products page with desired category parameters<br/></em></td></tr><tr id="a44cce12-f7d5-474c-a641-750700bea8d4"><td id="[g?b" class="block-color-brown_background" style="width:230px">Home page</td><td id="R\oJ" class="block-color-brown_background" style="width:230px"><a href="http://localhost:8080/index.html">Index.html</a></td><td id="PztQ" class="block-color-brown_background" style="width:230px">• Go to the URL</td></tr><tr id="4bb4b2a6-3cc9-4d81-8b6b-e9ffffc7ba01"><td id="[g?b" class="block-color-brown_background" style="width:230px">Home page - Shop all</td><td id="R\oJ" class="block-color-brown_background" style="width:230px"><a href="http://localhost:8080/index.html">Index.html</a></td><td id="PztQ" class="block-color-brown_background" style="width:230px">• Go to the URL<br/>• Click on the <br/><code>Shop All Products</code> button.</td></tr><tr id="f6a23fd9-71f3-4c16-a3af-495a36dbeffd"><td id="[g?b" class="block-color-brown_background" style="width:230px">Home page - Shop by category</td><td id="R\oJ" class="block-color-brown_background" style="width:230px"><a href="http://localhost:8080/index.html">Index.html</a></td><td id="PztQ" class="block-color-brown_background" style="width:230px">• Go to the URL<br/>• Scroll to “Shop By Category” section<br/>• Click on the corresponding “Shop <br/><code>category</code> ” button</td></tr><tr id="bf441305-1680-4db3-b96c-c43aa597f185"><td id="[g?b" class="block-color-brown_background" style="width:230px">Home Page - Direct link to product</td><td id="R\oJ" class="block-color-brown_background" style="width:230px"><a href="http://localhost:8080/index.html">Index.html</a></td><td id="PztQ" class="block-color-brown_background" style="width:230px">• Go to the URL<br/>• Scroll to “Shop By Category” section<br/>• Click on the corresponding <br/><code>product</code> button</td></tr><tr id="9b4acaab-872d-41f8-9ad6-2eb7abe62da9"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Product list</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL</td></tr><tr id="c08c8b76-5cc5-4c51-a3f0-0898409b1196"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Edit Product</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL<br/>• Click on the <br/><code>edit</code> button of corresponding product</td></tr><tr id="02d68328-11e2-40f0-be58-f2afd7c704c0"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Delete Product</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL<br/>• Click on the <br/><code>delete</code> button of corresponding product</td></tr><tr id="9a5dc8ba-968d-4799-b372-ba69f14375a3"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Add Product</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL<br/>• Scroll to bottom of product list<br/>• Click <br/><code>Add Product</code> button<br/><br/><br/><strong>OR<br/><br/></strong><br/>•Directly head to <br/><a href="http://127.0.0.1:8080/POST_Product.html">POST_Product.html</a></td></tr><tr id="d201dc34-9452-48d9-8527-ba894c6855c0"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Category list</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL</td></tr><tr id="b40388f2-d7c9-4ed6-aa9a-729d40cacdc7"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Edit category</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL<br/>• Click on the <br/><code>edit</code> button of corresponding category</td></tr><tr id="b512eef6-32c5-42b1-8623-6d697ad34ddb"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Delete category</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL<br/>• Click on the <br/><code>delete</code> button of corresponding category</td></tr><tr id="619dfa73-140c-495d-92f4-a15cced43245"><td id="[g?b" class="block-color-teal_background" style="width:230px">Admin Panel - Add Category</td><td id="R\oJ" class="block-color-teal_background" style="width:230px"><a href="https://www.notion.so/0da69adb7c50403683c264cbc0833486?pvs=21">Admin.html</a></td><td id="PztQ" class="block-color-teal_background" style="width:230px">• Go to the URL<br/>• Scroll to bottom of category list<br/>• Click <br/><code>Add Category</code> button<br/><br/><br/><strong>OR<br/><br/></strong><br/>•Directly head to <br/><a href="http://127.0.0.1:8080/POST_Category.html">POST_Category.html</a></td></tr><tr id="9f548909-b691-4a89-a5c7-b59436cc3974"><td id="[g?b" class="block-color-blue_background" style="width:230px">Products Page</td><td id="R\oJ" class="block-color-blue_background" style="width:230px"><a href="http://localhost:8080/products.html">Products.html</a></td><td id="PztQ" class="block-color-blue_background" style="width:230px">• Go to the URL</td></tr><tr id="37e99737-975e-4c5d-b9de-4835e26a9cc6"><td id="[g?b" class="block-color-blue_background" style="width:230px">Products Page - Displaying random color/variants</td><td id="R\oJ" class="block-color-blue_background" style="width:230px"><a href="http://localhost:8080/products.html">Products.html</a></td><td id="PztQ" class="block-color-blue_background" style="width:230px">• Reload the page<br/><br/><em>Notice how each time the page reloads, a random color is used for the product’s thumbnail</em></td></tr><tr id="5e556675-c527-4f09-aa11-91be5aaf985d"><td id="[g?b" class="block-color-blue_background" style="width:230px">Product Page</td><td id="R\oJ" class="block-color-blue_background" style="width:230px"><a href="http://localhost:8080/product.html?category_id=1&amp;name=KARA">Product.html</a></td><td id="PztQ" class="block-color-blue_background" style="width:230px">• Go to the <a href="http://localhost:8080/products.html">Products Page</a><br/>• Click on desired product’s name (eg: <br/><code>KARA</code> )<br/><br/><br/><strong>OR<br/><br/></strong><br/>• Manually add required URL parameters<br/>(eg: <br/><code>?category_id=1&amp;name=KARA</code> )</td></tr></tbody></table><p id="4a99a744-a4d0-47e3-8d8c-f0585ace2f8c" class="">
+</p><h2 id="a37a209c-0f6e-4a29-9883-216ee7db9b2a" class="">Additional Information: Automatic Image Path</h2><figure id="8b0d6a8e-a634-4815-a700-4cb9405b8d5b" class="image"><a href="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled.png"><img style="width:602px" src="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled.png"/></a></figure><p id="26702256-2866-4077-b3fc-789492ae8358" class="">When <code>Automatic</code> is selected whilst adding a product, its assuming that you are following existing file management patterns:</p><p id="341a04b7-4e3d-4be3-b9ba-6c7f4035abaa" class="">How the path is calculated:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="664d3d69-f5b9-42b5-858d-e741ec6362d9" class="code"><code class="language-JavaScript">&quot;../resources/&quot;  + categoryName + &quot;/&quot; + productName + &quot;/&quot; + productVariant + &quot;.png&quot;;
+
+/* example input */
+product = {
+name: &quot;KARA&quot;
+category: &quot;Keyboards&quot;
+variant: &quot;AZUR&quot;
+}
+
+/* example output*/
+picturePath = &quot;../resources/Keyboards/KARA/AZUR&quot;</code></pre><p id="3d2a7ea6-15c3-486e-873d-cf9c75462894" class="">
+</p><p id="bbe19502-0316-4a24-9e0b-4c3e0add2c85" class="">In case you are entering the file path manually, please make sure the directory you are entering is relative to <code>./site</code></p><p id="6d44e69b-d54e-4b34-a79c-c71b7a75a325" class="">
+</p><h2 id="297f0af9-d8ae-4a2b-80cb-08bc0c18bc6f" class="">Additional Information: How Products are displayed</h2><figure id="e45b6809-13f0-40a9-9499-51f0ebfe4c52" class="image"><a href="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%201.png"><img style="width:3206px" src="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%201.png"/></a></figure><p id="52e142c9-5819-4f8a-ad07-0c5deb6a45a6" class="">All products that have the same <code>name</code> and <code>category</code> are categorized into <code>ProductLines</code> , for example, we have multiple products called KARA under category id 1, but have different descriptions, variants(color) and price. These products will be classified and displayed in their respective pages.</p><figure id="e06fa7db-964f-437d-be13-e4a9e8d79517" class="image"><a href="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%202.png"><img style="width:3214px" src="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%202.png"/></a></figure><p id="64da9f62-8648-4621-843a-4ee8b4afc15c" class="">
+</p><h2 id="e74d1865-b057-43bb-85e1-98b6da4adf01" class="">Additional Info: How to add custom gradients/color for a variant</h2><p id="bac36b51-c12b-4416-8010-0eaac4021f39" class="">The header.js file has a dictionary that defines the background gradient colors you see in product pages, as well as category cards on index page. It looks something like this:<br/><br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="cf45d8c0-db9e-48bf-9613-781aa943f8c8" class="code"><code class="language-JavaScript">const variantDictionary = {
+  azur: &quot;#22BFB1, #054842&quot;,
+  iced: &quot;#CCCFD0,#454448&quot;,
+  haze: &quot;#A33EB7, #2D1740&quot;,
+  soya: &quot;#c1bcb0, #ABA494&quot;,
+  moon: &quot;#BEC6CC, #81898C&quot;,
+  noct: &quot;#707374, #1E1F23&quot;,
+  milk: &quot;#cadddd, #B6B9BA&quot;,
+  kuro: &quot;#535253, #010303&quot;,
+  rose: &quot;#F5E9DD , #A25D43&quot;,
+  dandy: &quot;#B8B1A7, #55655B&quot;,
+  neko: &quot;#C8BFC2, #BF7E96&quot;,
+  metropolis: &quot;#29A283 , #1D262A&quot;,
+  dualshot: &quot;#ADAEB3, #454649&quot;,
+  fuji: &quot;#6E6574, #A1A9C5&quot;,
+  ivory: &quot;#DABDAD, #DBB59F&quot;,
+  eclipse: &quot;#D16360, #201C22&quot;,
+  pagoda: &quot;#A6AFB9, #394250&quot;,
+  rocks: &quot;#D1BAAB, #5B6972&quot;,
+  black: &quot;#000000, #000000&quot;,
+  duck: &quot;#F7D67D, #606770&quot;,
+  frog: &quot;#63c552, #4c6045&quot;,
+  cream: &quot;#E7EEEA, #595950&quot;,
+  ink: &quot;#0B0B0B, #B3B2B1&quot;,
+  dark: &quot;#E46900, #555458&quot;,
+  light: &quot;#FCC133, #c8c2a1&quot;,
+  lake: &quot;#60697C, #2B3650&quot;,
+  mint: &quot;#80C0A5, #1D984C&quot;,
+  musk: &quot;#DFB3C4, #BE647F&quot;,
+  tang: &quot;#E4D2B7, #CB9139&quot;,
+  yolk: &quot;#E4C921, #2b2926&quot;,
+  black: &quot;#000000, #8c8c8c&quot;,
+};</code></pre><p id="6ad337e1-8d24-4831-8300-2d3af6e49bdf" class="">All you have to do is to add the variant name take for example <code>red</code> , you can add this to the dictionary:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e1540f81-27f5-4b90-a307-99c7b30d3f9e" class="code"><code class="language-JavaScript">red: &quot;#d42319, #5a1611&quot;</code></pre><p id="9519c1dd-a0b5-46bb-a73a-47b3640361aa" class="">And your gradient will look something like this:</p><div id="e7f0ee9a-1105-4e58-94a3-f03b764e1f0f" class="column-list"><div id="af4f7f58-a473-45c4-8d2c-3dc04bdec934" style="width:50%" class="column"><figure id="ca7ca101-358a-4850-980d-b1c24aff8c8c" class="image"><a href="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%203.png"><img style="width:484px" src="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%203.png"/></a></figure></div><div id="83d4d6e7-f22b-4d62-b2bc-9f2c4212ace0" style="width:50%" class="column"><figure id="a73793bd-f3fa-4018-aaf8-817740917531" class="image"><a href="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%204.png"><img style="width:482px" src="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%204.png"/></a></figure><p id="eedc24b3-9b73-4202-8c81-15995472f25c" class="">
+</p></div></div><figure id="4d4a9788-1ec3-4531-b783-a3cc49d007f1" class="image"><a href="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%205.png"><img style="width:1196px" src="Project-AY2324%20Oct-Project%20Report%20a264dd8838ca4c15920d18a93d2b5f23/Untitled%205.png"/></a></figure><p id="38788f66-93d6-43e9-971b-716d11e607ff" class="">
+</p><h1 id="954fc8e5-4811-4a47-aecb-c42b7d9bb299" class="">Section C: Instructions to run the project</h1><p id="4aae1f8d-c2b5-44cf-af9f-dc87e79692a1" class="">Add the steps to run your project.</p><p id="ce6f2eeb-47de-4db0-b393-ae776da4b928" class="">Note: Please replace the examples in the following table with your own in your final submission</p><table id="8075ee8f-9d12-4e36-83bf-841a68c3e8fd" class="simple-table"><thead class="simple-table-header"><tr id="870363ed-2e0b-456a-8f77-662cb1aec68f"><th id="BLgi" class="simple-table-header-color simple-table-header" style="width:345px"><strong>Steps</strong></th><th id="P~oP" class="simple-table-header-color simple-table-header" style="width:345px"><strong>Description</strong></th></tr></thead><tbody><tr id="698afa98-805c-4717-b3c9-b8f041e69133"><td id="BLgi" class="" style="width:345px">1</td><td id="P~oP" class="" style="width:345px">Unzip project folder</td></tr><tr id="bccb2c96-a0e1-41ef-a12d-a8cc797682b3"><td id="BLgi" class="" style="width:345px">2</td><td id="P~oP" class="" style="width:345px">Open project folder with VS Code</td></tr><tr id="a2d13dea-d2e5-4075-bbe9-367427e0eb82"><td id="BLgi" class="" style="width:345px">3</td><td id="P~oP" class="" style="width:345px">Open MySQL Workbench</td></tr><tr id="490a0375-adee-4665-8a86-c4e53942f1b5"><td id="BLgi" class="" style="width:345px">4</td><td id="P~oP" class="" style="width:345px">Run <code>DB\ABCKeeb.sql</code> in MySQL Workbench</td></tr><tr id="de0cb04b-05ff-4941-85d2-4ffb0c3b8265"><td id="BLgi" class="" style="width:345px">5</td><td id="P~oP" class="" style="width:345px">Import schema Data</td></tr><tr id="85cc974a-bd1d-4f8b-a931-a55d460b5af6"><td id="BLgi" class="" style="width:345px">6</td><td id="P~oP" class="" style="width:345px">Run <code>node .\API\Server.js</code> in Terminal</td></tr></tbody></table><p id="71c5f1da-b879-48a8-89d6-f5d1bad72e91" class="">
+</p><h1 id="6acc02a8-70e9-4914-a3e6-58e42b04a8e8" class="">🛑PLEASE READ THIS AFTER TESTING</h1><p id="d7152602-a566-4a88-a773-f4f4199a8f0a" class="">Notice last line of <em>ABCKeeb.sql</em><br/><br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="57b33e17-d464-4eb8-8f19-bb9e8a1d253c" class="code"><code class="language-SQL">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;john4int&#x27;;</code></pre><p id="f8504235-4815-4fd5-8de1-5519a18cf731" class="">This edits the root user’s password and enables backwards compatibility for older auth methods.</p><p id="e33dde1a-f198-4023-a8a5-6d69eb36940e" class="">Please reset it back to your desired password/what you originally have for other projects to work</p><p id="7532a916-a3ee-4518-a9ab-25adff7d4a17" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="60063899-2de1-4fba-8b1c-b13afa43aa5d" class="code"><code class="language-SQL">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;&lt;password&gt;&#x27;;</code></pre><p id="66a1d98f-a6c6-4b68-b2b6-d67fef40a102" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
