@@ -1,5 +1,5 @@
 function browseProducts(name) {
-  if (!name && !id) {
+  if (!name) {
     location.href = "/products.html";
   } else {
     location.href = `/products.html?category=${name}`;

@@ -102,7 +102,7 @@ function deleteCategoryData(categoryId) {
     response.then((res) => {
       if (res.ok) {
         alert("Category deleted successfully!");
-        location.href = "/GET_Products.html"; // Or reload the current page
+        location.href = "/Admin.html"; // Or reload the current page
       } else {
         console.error("Failed to delete category. Status:", res.status);
       }
@@ -132,7 +132,7 @@ function deleteProductData(productId) {
     request.onload = function () {
       if (request.status === 200) {
         console.log("Product deleted successfully");
-        location.href = "/GET_Products.html"; // Or reload the current page
+        location.href = "/Admin.html"; // Or reload the current page
       } else {
         console.error("Failed to delete product. Status:", request.status);
       }

@@ -139,6 +139,8 @@ app.route("/POSTproduct").post(async (req, res) => {
   }
 });
 
+
+
 // PUT /UPDATE product Route
 app.route("/UPDATEproduct/:id").put(async (req, res) => {
   try {
